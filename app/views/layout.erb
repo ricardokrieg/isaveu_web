@@ -30,13 +30,13 @@
   <![endif]-->
 </head>
 
-<body id="body" class="home-classic boxed-menu">
+<body id="body" class="<%= @body_class || 'home-classic'%> boxed-menu">
   <div class="mobile-sticky-header-overlay"></div>
 
   <%= erb :'partials/top_bar' %>
   <%= erb :'partials/header' %>
 
-  <div class="main-wrapper home">
+  <div class="main-wrapper <%= @main_wrapper_class || 'home' %>">
     <%= yield %>
 
     <%= erb :'partials/footer' %>

@@ -1,0 +1,65 @@
+<!-- BREDCRUMB -->
+<section class="bredcrumb">
+  <div class="bg-image text-center" style="background-image: url('img/bg-bredcrumb.jpg');">
+    <h1>Contato</h1>
+  </div>
+</section>
+
+<section class="contactus">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <form class="">
+          <div class="sectionTitle">
+            <h2>Mande-nos uma mensagem</h2>
+            <p>Tem uma dúvida ou sugestão? Está interessado em contratar um serviço?</p>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="exampleInputName" placeholder="Nome">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="exampleInputPhone" placeholder="Telefone">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="exampleInputSubject" placeholder="Assunto">
+            </div>
+            <div class="form-group col-md-12">
+              <textarea class="form-control" id="exampleTextarea" rows="5" placeholder="Mensagem"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default btn-primary bold">Enviar</button>
+        </form>
+      </div>
+      <div class="col-lg-4">
+        <div class="contact_sidebar">
+          <div class="media-box bg-sand">
+            <div class="media-icon">
+              <i class="fa fa-phone"></i>
+            </div>
+            <div class="media-content">
+              <h4>Telefone</h4>
+              <p>
+                <%= @isaveu_phone %>
+              </p>
+            </div>
+          </div>
+          <div class="media-box bg-sand">
+            <div class="media-icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <div class="media-content">
+              <h4>Email</h4>
+              <p>
+                <%= @isaveu_email %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

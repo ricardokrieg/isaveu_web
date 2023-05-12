@@ -18,5 +18,8 @@ get '/servicos' do
 end
 
 get '/contato' do
+  @body_class = 'page-contactus'
+  @main_wrapper_class = 'pages'
+
   erb :contact
 end

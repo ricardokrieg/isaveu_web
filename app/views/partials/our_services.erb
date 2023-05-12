@@ -1,60 +1,28 @@
-<section class="services-area">
+<section class="services-area services-area2">
   <div class="container">
-    <!-- section title -->
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="sectionTitle text-center">
-          <h2>Como Funciona</h2>
-          <p>Entenda como nosso processo funciona</p>
+          <h2>Nossos Serviços</h2>
+          <p>Veja aqui a lista de serviços que nós oferecemos</p>
         </div>
       </div>
     </div>
-    <!-- section title ends -->
     <div class="row">
-      <div class="col-md-6 col-lg-3">
-        <div class="media-box">
-          <div class="media-icon">
-            <i class="fa fa-line-chart"></i>
-          </div>
-          <div class="media-content">
-            <a href="#"><h4>Selecione o tipo de serviço</h4></a>
-            <p>Procure na nossa lista o serviço que você está precisando</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="media-box">
-          <div class="media-icon">
-            <i class="fa fa-credit-card"></i>
-          </div>
-          <div class="media-content">
-            <a href="#"><h4>Agende uma visita</h4></a>
-            <p>Um profissional irá na sua casa fazer o orçamento para o serviço. Sem nenhum compromisso!</p>
+      <% 9.times do %>
+        <div class="col-md-6 col-lg-4">
+          <div class="card mt-5">
+            <div class="card-img">
+              <a href="#"><img src="img/home/gallery/g1.jpg" alt="" class="img-fluid"></a>
+            </div>
+            <div class="card-block">
+              <a href="#"><h4 class="card-title">Pedreiro</h4></a>
+              <p class="mb-3">Precisando de reforma? Nós temos a solução!</p>
+              <a href="#" class="btn btn-primary btn-sm">Contratar</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="media-box">
-          <div class="media-icon">
-            <i class="fa fa-bar-chart-o"></i>
-          </div>
-          <div class="media-content">
-            <a href="#"><h4>Faça o pagamento</h4></a>
-            <p>Você pode pagar usando cartão de crédito ou através de transferência bancária</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="media-box">
-          <div class="media-icon">
-            <i class="fa fa-tripadvisor"></i>
-          </div>
-          <div class="media-content">
-            <a href="#"><h4>E pronto!</h4></a>
-            <p>Selecionaremos o melhor profissional para a sua situação, e ele irá na sua casa na data agendada</p>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
