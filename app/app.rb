@@ -18,34 +18,15 @@ get '/servicos' do
   erb :services
 end
 
-get '/servicos/bombeiro-hidraulico' do
-  @body_class = 'page-services'
+ServiceListService.instance.each do |service|
+  get service['url'] do
+    @body_class = 'page-services'
+    @title = service['name']
 
-  erb :'servicos/bombeiro_hidraulico'
-end
-
-get '/servicos/eletricista' do
-  @body_class = 'page-services'
-
-  erb :'servicos/eletricista'
-end
-
-get '/servicos/pedreiro' do
-  @body_class = 'page-services'
-
-  erb :'servicos/pedreiro'
-end
-
-get '/servicos/pintor' do
-  @body_class = 'page-services'
-
-  erb :'servicos/pintor'
-end
-
-get '/servicos/seguranca' do
-  @body_class = 'page-services'
-
-  erb :'servicos/seguranca'
+    erb :'servicos/layout', layout: :layout do
+      erb service['template'].to_sym
+    end
+  end
 end
 
 get '/contato' do

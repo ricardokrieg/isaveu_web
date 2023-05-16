@@ -4,23 +4,28 @@ services:
     description: Precisando de reforma? Nós temos a solução!
     image: /img/home/gallery/g1.jpg
     url: /servicos/pedreiro
+    template: servicos/pedreiro
   -
     name: Pintor
     description: Precisando de reforma? Nós temos a solução!
     image: /img/home/gallery/g1.jpg
     url: /servicos/pintor
+    template: servicos/pintor
   -
     name: Eletricista
     description: Precisando de reforma? Nós temos a solução!
     image: /img/home/gallery/g1.jpg
     url: /servicos/eletricista
+    template: servicos/eletricista
   -
     name: Segurança
     description: Precisando de reforma? Nós temos a solução!
     image: /img/home/gallery/g1.jpg
     url: /servicos/seguranca
+    template: servicos/seguranca
   -
     name: Bombeiro Hidráulico
     description: Precisando de reforma? Nós temos a solução!
     image: /img/home/gallery/g1.jpg
     url: /servicos/bombeiro-hidraulico
+    template: servicos/bombeiro_hidraulico
