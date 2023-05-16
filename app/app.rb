@@ -1,6 +1,7 @@
 require 'sinatra'
 require_relative '../config/settings'
 require_relative 'helpers/menu'
+require_relative 'services/service_list_service'
 
 before(%r{/(.+)/}) { |path| redirect(path, 301) }
 
@@ -15,6 +16,36 @@ end
 
 get '/servicos' do
   erb :services
+end
+
+get '/servicos/bombeiro-hidraulico' do
+  @body_class = 'page-services'
+
+  erb :'servicos/bombeiro_hidraulico'
+end
+
+get '/servicos/eletricista' do
+  @body_class = 'page-services'
+
+  erb :'servicos/eletricista'
+end
+
+get '/servicos/pedreiro' do
+  @body_class = 'page-services'
+
+  erb :'servicos/pedreiro'
+end
+
+get '/servicos/pintor' do
+  @body_class = 'page-services'
+
+  erb :'servicos/pintor'
+end
+
+get '/servicos/seguranca' do
+  @body_class = 'page-services'
+
+  erb :'servicos/seguranca'
 end
 
 get '/contato' do
