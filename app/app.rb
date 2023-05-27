@@ -2,7 +2,8 @@ require 'sinatra'
 require 'sinatra/content_for'
 require_relative '../config/settings'
 require_relative 'helpers/menu'
-require_relative 'services/service_list_service'
+require_relative 'services/list_services'
+require_relative 'services/save_contact'
 
 before(%r{/(.+)/}) { |path| redirect(path, 301) }
 
@@ -19,7 +20,7 @@ get '/servicos' do
   erb :services
 end
 
-ServiceListService.instance.each do |service|
+Services::ListServices.instance.each do |service|
   get service['url'] do
     @body_class = 'page-services'
     @title = service['name']
@@ -35,4 +36,10 @@ get '/contato' do
   @main_wrapper_class = 'pages'
 
   erb :contact
+end
+
+post '/orcamento' do
+  Services::SaveContact.save(params)
+
+  redirect back
 end
