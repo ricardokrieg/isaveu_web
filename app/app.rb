@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/content_for'
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/service_list_service'
