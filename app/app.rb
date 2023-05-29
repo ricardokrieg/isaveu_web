@@ -1,9 +1,13 @@
 require 'sinatra'
 require 'sinatra/content_for'
+require 'rack/turnout'
+
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
 require_relative 'services/save_contact'
+
+use Rack::Turnout, maintenance_pages_path: 'app/public'
 
 before(%r{/(.+)/}) { |path| redirect(path, 301) }
 
