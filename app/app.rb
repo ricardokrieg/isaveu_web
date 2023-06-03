@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/json'
 require 'sinatra/content_for'
 require 'rack/turnout'
 
@@ -43,7 +44,11 @@ get '/contato' do
 end
 
 post '/orcamento' do
-  Services::SaveContact.save(params)
+  if Services::SaveContact.save(params)
+    json success: 'Orçamento enviado com sucesso!'
+  else
+    # TODO notify about error
+    json error: 'Erro ao enviar orçamento. Por favor, tente novamente mais tarde'
+  end
 
-  redirect back
 end

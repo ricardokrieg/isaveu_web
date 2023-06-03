@@ -3,6 +3,8 @@ module Services
     class << self
       def save(params)
         p params
+
+        true
       end
     end
   end

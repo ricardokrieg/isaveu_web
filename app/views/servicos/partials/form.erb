@@ -1,0 +1,69 @@
+<section id="solicitar-orcamento" class="home-form bg-navy" id="quote" style="padding: 20px">
+  <h2 class="text-center">Solicitar Orçamento</h2>
+  <form id='contact-form' class="row pb30" action="<%= url('/orcamento') %>" method="POST">
+    <div class="form-group col-md-12">
+      <input type="text" class="form-control" id="exampleInputName" aria-describedby="userName" placeholder="Nome">
+    </div>
+    <div class="form-group col-md-12 selectOptions">
+      <select name="contact-option" class="form-control" data-contact-option>
+        <option name="whatsapp">Contato via Whatsapp</option>
+        <option name="Telefone">Contato via Telefone</option>
+        <option name="email">Contato via Email</option>
+      </select>
+    </div>
+    <div class="form-group col-md-12">
+      <input type="text" class="form-control" name="contact-whatsapp" placeholder="Whatsapp" data-select-field="Contato via Whatsapp">
+    </div>
+    <div class="form-group col-md-12">
+      <input type="text" class="form-control" name="contact-phone" placeholder="Telefone" data-select-field="Contato via Telefone">
+    </div>
+    <div class="form-group col-md-12">
+      <input type="email" class="form-control" name="contact-email" placeholder="Email" data-select-field="Contato via Email">
+    </div>
+    <div class="form-group col-md-12">
+      <textarea class="form-control" style="background-color: transparent; color: white" rows="5" name="contact-comment" placeholder="Fale um pouco sobre o serviço que você quer realizar"></textarea>
+    </div>
+    <div class="col-md-12 text-center">
+      <button type="submit" class="btn btn-default bg-navy">Enviar</button>
+      <div data-form-result></div>
+    </div>
+  </form>
+</section>
+
+<% content_for :javascript do %>
+  <script type="text/javascript" charset="utf-8">
+    function update_contact_options() {
+      var selectedText = $('[data-contact-option]').closest('.selectOptions').find('.sbHolder a.sbSelector').text();
+
+      $('[data-select-field]').hide();
+      $('[data-select-field="'+selectedText+'"]').show();
+    }
+
+    function submit_contact_form(form) {
+      var formData = form.serialize();
+
+      $.post($(form).attr('action'), formData, function(data) {
+        if (data['error']) {
+          $(form).find('[data-form-result]').html(data['error']);
+        } else if (data['success']) {
+          $(form).find('button[type=submit]').hide();
+          $(form).find('[data-form-result]').html(data['success']);
+        }
+      });
+    }
+
+    $(document).ready(function(){
+      $('[data-contact-option]').selectbox({
+        onChange: update_contact_options
+      });
+
+      update_contact_options();
+
+      $('#contact-form').on('submit', function(e) {
+        e.preventDefault();
+
+        submit_contact_form($(this));
+      })
+    });
+  </script>
+<% end %>
