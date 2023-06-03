@@ -10,4 +10,4 @@ gem 'rake'
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rbenv'
-gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
