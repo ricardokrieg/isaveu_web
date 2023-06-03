@@ -1,0 +1,227 @@
+# Logfile created on 2018-06-03 18:56:01 -0300 by logger.rb/56815
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-06-03 18:56:01 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [3d5c86d5] Running [ -d $HOME/.rbenv/versions/2.4.3 ] as wolf@isaveu.com.br
+ DEBUG [3d5c86d5] Command: [ -d $HOME/.rbenv/versions/2.4.3 ]
+ DEBUG [3d5c86d5] Finished in 2.731 seconds with exit status 1 (failed).
+  WARN rbenv: 2.4.3 is not installed or not found in $HOME/.rbenv/versions/2.4.3 on isaveu.com.br
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-06-03 19:04:51 -0300 cap production puma:config
+  INFO ---------------------------------------------------------------------------
+ DEBUG [5d36f2bb] Running [ -d $HOME/.rbenv/versions/2.4.3 ] as wolf@isaveu.com.br
+ DEBUG [5d36f2bb] Command: [ -d $HOME/.rbenv/versions/2.4.3 ]
+ DEBUG [5d36f2bb] Finished in 13.076 seconds with exit status 0 (successful).
+ DEBUG Uploading /home/wolf/isaveu_web/shared/puma.rb 0.0%
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-06-03 19:27:03 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [6c873df8] Running [ -d $HOME/.rbenv/versions/2.4.3 ] as wolf@isaveu.com.br
+ DEBUG [6c873df8] Command: [ -d $HOME/.rbenv/versions/2.4.3 ]
+ DEBUG [6c873df8] Finished in 7.255 seconds with exit status 0 (successful).
+  INFO [658500a1] Running /usr/bin/env mkdir -p /tmp as wolf@isaveu.com.br
+ DEBUG [658500a1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [658500a1] Finished in 0.380 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-isaveu_web-production-wolf.sh 0.0%
+  INFO Uploading /tmp/git-ssh-isaveu_web-production-wolf.sh 100.0%
+  INFO [6911cd3f] Running /usr/bin/env chmod 700 /tmp/git-ssh-isaveu_web-production-wolf.sh as wolf@isaveu.com.br
+ DEBUG [6911cd3f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-isaveu_web-production-wolf.sh )
+  INFO [6911cd3f] Finished in 0.381 seconds with exit status 0 (successful).
+  INFO [45bd490d] Running /usr/bin/env git ls-remote git@bitbucket.org:ricardokrieg/isaveu_web.git HEAD as wolf@isaveu.com.br
+ DEBUG [45bd490d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ricardokrieg/isaveu_web.git HEAD )
+ DEBUG [45bd490d] 	Warning: Permanently added 'bitbucket.org,104.192.143.1' (RSA) to the list of known hosts.
+ DEBUG [45bd490d] 	852b2654e9d9c713bdde44deaad95d8b524ca994	HEAD
+  INFO [45bd490d] Finished in 1.258 seconds with exit status 0 (successful).
+  INFO [1661db4b] Running /usr/bin/env mkdir -p /home/wolf/isaveu_web/shared /home/wolf/isaveu_web/releases as wolf@isaveu.com.br
+ DEBUG [1661db4b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env mkdir -p /home/wolf/isaveu_web/shared /home/wolf/isaveu_web/releases )
+  INFO [1661db4b] Finished in 0.379 seconds with exit status 0 (successful).
+ DEBUG [6d4f2e6a] Running [ -f /home/wolf/isaveu_web/shared/puma.rb ] as wolf@isaveu.com.br
+ DEBUG [6d4f2e6a] Command: [ -f /home/wolf/isaveu_web/shared/puma.rb ]
+ DEBUG [6d4f2e6a] Finished in 0.377 seconds with exit status 1 (failed).
+  WARN puma.rb NOT FOUND!
+ DEBUG Uploading /home/wolf/isaveu_web/shared/puma.rb 0.0%
+  INFO Uploading /home/wolf/isaveu_web/shared/puma.rb 100.0%
+  INFO puma.rb generated
+ DEBUG [8d7d44b7] Running [ -f /home/wolf/isaveu_web/current/REVISION ] as wolf@isaveu.com.br
+ DEBUG [8d7d44b7] Command: [ -f /home/wolf/isaveu_web/current/REVISION ]
+ DEBUG [8d7d44b7] Finished in 0.378 seconds with exit status 1 (failed).
+ DEBUG [fc46909e] Running [ -f /home/wolf/isaveu_web/repo/HEAD ] as wolf@isaveu.com.br
+ DEBUG [fc46909e] Command: [ -f /home/wolf/isaveu_web/repo/HEAD ]
+ DEBUG [fc46909e] Finished in 0.342 seconds with exit status 1 (failed).
+ DEBUG [364031d5] Running if test ! -d /home/wolf/isaveu_web; then echo "Directory does not exist '/home/wolf/isaveu_web'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [364031d5] Command: if test ! -d /home/wolf/isaveu_web; then echo "Directory does not exist '/home/wolf/isaveu_web'" 1>&2; false; fi
+ DEBUG [364031d5] Finished in 0.380 seconds with exit status 0 (successful).
+  INFO [6c278271] Running /usr/bin/env git clone --mirror git@bitbucket.org:ricardokrieg/isaveu_web.git /home/wolf/isaveu_web/repo as wolf@isaveu.com.br
+ DEBUG [6c278271] Command: cd /home/wolf/isaveu_web && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git clone --mirror git@bitbucket.org:ricardokrieg/isaveu_web.git /home/wolf/isaveu_web/repo )
+ DEBUG [6c278271] 	Cloning into bare repository '/home/wolf/isaveu_web/repo'...
+ DEBUG [6c278271] 	Warning: Permanently added the RSA host key for IP address '104.192.143.2' to the list of known hosts.
+  INFO [6c278271] Finished in 5.072 seconds with exit status 0 (successful).
+ DEBUG [4bd87951] Running if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [4bd87951] Command: if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi
+ DEBUG [4bd87951] Finished in 0.382 seconds with exit status 0 (successful).
+  INFO [d6b9617f] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ricardokrieg/isaveu_web.git as wolf@isaveu.com.br
+ DEBUG [d6b9617f] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ricardokrieg/isaveu_web.git )
+  INFO [d6b9617f] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [c362712a] Running /usr/bin/env git remote update --prune as wolf@isaveu.com.br
+ DEBUG [c362712a] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [c362712a] 	Fetching origin
+  INFO [c362712a] Finished in 0.878 seconds with exit status 0 (successful).
+ DEBUG [53da5a89] Running if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [53da5a89] Command: if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi
+ DEBUG [53da5a89] Finished in 0.379 seconds with exit status 0 (successful).
+  INFO [215509a1] Running /usr/bin/env mkdir -p /home/wolf/isaveu_web/releases/20180603222716 as wolf@isaveu.com.br
+ DEBUG [215509a1] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env mkdir -p /home/wolf/isaveu_web/releases/20180603222716 )
+  INFO [215509a1] Finished in 0.381 seconds with exit status 0 (successful).
+  INFO [152ffa22] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/wolf/isaveu_web/releases/20180603222716 as wolf@isaveu.com.br
+ DEBUG [152ffa22] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/wolf/isaveu_web/releases/20180603222716 )
+  INFO [152ffa22] Finished in 0.645 seconds with exit status 0 (successful).
+ DEBUG [80f762e9] Running if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [80f762e9] Command: if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi
+ DEBUG [80f762e9] Finished in 0.378 seconds with exit status 0 (successful).
+ DEBUG [42f8e28c] Running /usr/bin/env git rev-list --max-count=1 master as wolf@isaveu.com.br
+ DEBUG [42f8e28c] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [42f8e28c] 	852b2654e9d9c713bdde44deaad95d8b524ca994
+ DEBUG [42f8e28c] Finished in 0.384 seconds with exit status 0 (successful).
+ DEBUG [0318bbed] Running if test ! -d /home/wolf/isaveu_web/releases/20180603222716; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603222716'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [0318bbed] Command: if test ! -d /home/wolf/isaveu_web/releases/20180603222716; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603222716'" 1>&2; false; fi
+ DEBUG [0318bbed] Finished in 0.378 seconds with exit status 0 (successful).
+  INFO [e31027e4] Running /usr/bin/env echo "852b2654e9d9c713bdde44deaad95d8b524ca994" > REVISION as wolf@isaveu.com.br
+ DEBUG [e31027e4] Command: cd /home/wolf/isaveu_web/releases/20180603222716 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env echo "852b2654e9d9c713bdde44deaad95d8b524ca994" > REVISION )
+  INFO [e31027e4] Finished in 0.397 seconds with exit status 0 (successful).
+ DEBUG [0f249701] Running if test ! -d /home/wolf/isaveu_web/releases/20180603222716; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603222716'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [0f249701] Command: if test ! -d /home/wolf/isaveu_web/releases/20180603222716; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603222716'" 1>&2; false; fi
+ DEBUG [0f249701] Finished in 0.378 seconds with exit status 0 (successful).
+ DEBUG [c5ec9260] Running $HOME/.rbenv/bin/rbenv exec bundle check --path /home/wolf/isaveu_web/shared/bundle as wolf@isaveu.com.br
+ DEBUG [c5ec9260] Command: cd /home/wolf/isaveu_web/releases/20180603222716 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; $HOME/.rbenv/bin/rbenv exec bundle check --path /home/wolf/isaveu_web/shared/bundle )
+ DEBUG [c5ec9260] 	rbenv: bundle: command not found
+ DEBUG [c5ec9260] Finished in 0.458 seconds with exit status 127 (failed).
+  INFO [ba949221] Running $HOME/.rbenv/bin/rbenv exec bundle install --path /home/wolf/isaveu_web/shared/bundle --without development test --deployment --quiet as wolf@isaveu.com.br
+ DEBUG [ba949221] Command: cd /home/wolf/isaveu_web/releases/20180603222716 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; $HOME/.rbenv/bin/rbenv exec bundle install --path /home/wolf/isaveu_web/shared/bundle --without development test --deployment --quiet )
+ DEBUG [ba949221] 	rbenv: bundle: command not found
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-06-03 19:39:40 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [ea6cafae] Running [ -d $HOME/.rbenv/versions/2.4.3 ] as wolf@isaveu.com.br
+ DEBUG [ea6cafae] Command: [ -d $HOME/.rbenv/versions/2.4.3 ]
+ DEBUG [ea6cafae] Finished in 2.613 seconds with exit status 0 (successful).
+  INFO [d2fbb738] Running /usr/bin/env mkdir -p /tmp as wolf@isaveu.com.br
+ DEBUG [d2fbb738] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env mkdir -p /tmp )
+  INFO [d2fbb738] Finished in 0.390 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-isaveu_web-production-wolf.sh 0.0%
+  INFO Uploading /tmp/git-ssh-isaveu_web-production-wolf.sh 100.0%
+  INFO [350c24f1] Running /usr/bin/env chmod 700 /tmp/git-ssh-isaveu_web-production-wolf.sh as wolf@isaveu.com.br
+ DEBUG [350c24f1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env chmod 700 /tmp/git-ssh-isaveu_web-production-wolf.sh )
+  INFO [350c24f1] Finished in 0.380 seconds with exit status 0 (successful).
+  INFO [ea557b45] Running /usr/bin/env git ls-remote git@bitbucket.org:ricardokrieg/isaveu_web.git HEAD as wolf@isaveu.com.br
+ DEBUG [ea557b45] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:ricardokrieg/isaveu_web.git HEAD )
+ DEBUG [ea557b45] 	852b2654e9d9c713bdde44deaad95d8b524ca994	HEAD
+  INFO [ea557b45] Finished in 0.927 seconds with exit status 0 (successful).
+  INFO [5ecf0348] Running /usr/bin/env mkdir -p /home/wolf/isaveu_web/shared /home/wolf/isaveu_web/releases as wolf@isaveu.com.br
+ DEBUG [5ecf0348] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env mkdir -p /home/wolf/isaveu_web/shared /home/wolf/isaveu_web/releases )
+  INFO [5ecf0348] Finished in 0.381 seconds with exit status 0 (successful).
+ DEBUG [a3fba66b] Running [ -f /home/wolf/isaveu_web/shared/puma.rb ] as wolf@isaveu.com.br
+ DEBUG [a3fba66b] Command: [ -f /home/wolf/isaveu_web/shared/puma.rb ]
+ DEBUG [a3fba66b] Finished in 0.377 seconds with exit status 0 (successful).
+ DEBUG [10bc481f] Running [ -f /home/wolf/isaveu_web/current/REVISION ] as wolf@isaveu.com.br
+ DEBUG [10bc481f] Command: [ -f /home/wolf/isaveu_web/current/REVISION ]
+ DEBUG [10bc481f] Finished in 0.379 seconds with exit status 1 (failed).
+ DEBUG [11caebf1] Running [ -f /home/wolf/isaveu_web/repo/HEAD ] as wolf@isaveu.com.br
+ DEBUG [11caebf1] Command: [ -f /home/wolf/isaveu_web/repo/HEAD ]
+ DEBUG [11caebf1] Finished in 0.382 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/wolf/isaveu_web/repo
+ DEBUG [5063650f] Running if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [5063650f] Command: if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi
+ DEBUG [5063650f] Finished in 0.380 seconds with exit status 0 (successful).
+  INFO [59e16a6e] Running /usr/bin/env git remote set-url origin git@bitbucket.org:ricardokrieg/isaveu_web.git as wolf@isaveu.com.br
+ DEBUG [59e16a6e] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git remote set-url origin git@bitbucket.org:ricardokrieg/isaveu_web.git )
+  INFO [59e16a6e] Finished in 0.384 seconds with exit status 0 (successful).
+  INFO [c82369bb] Running /usr/bin/env git remote update --prune as wolf@isaveu.com.br
+ DEBUG [c82369bb] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [c82369bb] 	Fetching origin
+ DEBUG [c82369bb] 	Warning: Permanently added the RSA host key for IP address '104.192.143.3' to the list of known hosts.
+  INFO [c82369bb] Finished in 0.885 seconds with exit status 0 (successful).
+ DEBUG [0e59911b] Running if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [0e59911b] Command: if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi
+ DEBUG [0e59911b] Finished in 0.378 seconds with exit status 0 (successful).
+  INFO [0af91be7] Running /usr/bin/env mkdir -p /home/wolf/isaveu_web/releases/20180603223946 as wolf@isaveu.com.br
+ DEBUG [0af91be7] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env mkdir -p /home/wolf/isaveu_web/releases/20180603223946 )
+  INFO [0af91be7] Finished in 0.388 seconds with exit status 0 (successful).
+  INFO [21e9e2c2] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/wolf/isaveu_web/releases/20180603223946 as wolf@isaveu.com.br
+ DEBUG [21e9e2c2] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/wolf/isaveu_web/releases/20180603223946 )
+  INFO [21e9e2c2] Finished in 0.498 seconds with exit status 0 (successful).
+ DEBUG [dbb2fd32] Running if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [dbb2fd32] Command: if test ! -d /home/wolf/isaveu_web/repo; then echo "Directory does not exist '/home/wolf/isaveu_web/repo'" 1>&2; false; fi
+ DEBUG [dbb2fd32] Finished in 0.379 seconds with exit status 0 (successful).
+ DEBUG [148009fa] Running /usr/bin/env git rev-list --max-count=1 master as wolf@isaveu.com.br
+ DEBUG [148009fa] Command: cd /home/wolf/isaveu_web/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-isaveu_web-production-wolf.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [148009fa] 	852b2654e9d9c713bdde44deaad95d8b524ca994
+ DEBUG [148009fa] Finished in 0.382 seconds with exit status 0 (successful).
+ DEBUG [0df65593] Running if test ! -d /home/wolf/isaveu_web/releases/20180603223946; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603223946'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [0df65593] Command: if test ! -d /home/wolf/isaveu_web/releases/20180603223946; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603223946'" 1>&2; false; fi
+ DEBUG [0df65593] Finished in 0.379 seconds with exit status 0 (successful).
+  INFO [748cacc7] Running /usr/bin/env echo "852b2654e9d9c713bdde44deaad95d8b524ca994" > REVISION as wolf@isaveu.com.br
+ DEBUG [748cacc7] Command: cd /home/wolf/isaveu_web/releases/20180603223946 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env echo "852b2654e9d9c713bdde44deaad95d8b524ca994" > REVISION )
+  INFO [748cacc7] Finished in 0.386 seconds with exit status 0 (successful).
+ DEBUG [76ef4a78] Running if test ! -d /home/wolf/isaveu_web/releases/20180603223946; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603223946'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [76ef4a78] Command: if test ! -d /home/wolf/isaveu_web/releases/20180603223946; then echo "Directory does not exist '/home/wolf/isaveu_web/releases/20180603223946'" 1>&2; false; fi
+ DEBUG [76ef4a78] Finished in 0.380 seconds with exit status 0 (successful).
+ DEBUG [048bd55e] Running $HOME/.rbenv/bin/rbenv exec bundle check --path /home/wolf/isaveu_web/shared/bundle as wolf@isaveu.com.br
+ DEBUG [048bd55e] Command: cd /home/wolf/isaveu_web/releases/20180603223946 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; $HOME/.rbenv/bin/rbenv exec bundle check --path /home/wolf/isaveu_web/shared/bundle )
+ DEBUG [048bd55e] 	The following gems are missing
+ DEBUG [048bd55e] 	 * rake (12.3.1)
+ DEBUG [048bd55e] 	 * backports (3.11.3)
+ DEBUG [048bd55e] 	 * concurrent-ruby (1.0.5)
+ DEBUG [048bd55e] 	 * daemons (1.2.6)
+ DEBUG [048bd55e] 	 * eventmachine (1.2.5)
+ DEBUG [048bd55e] 	 * i18n (0.9.5)
+ DEBUG [048bd55e] 	 * multi_json (1.13.1)
+ DEBUG [048bd55e] 	 * mustermann (1.0.2)
+ DEBUG [048bd55e] 	 * rack (2.0.4)
+ DEBUG [048bd55e] 	 * rack-accept (0.4.5)
+ DEBUG [048bd55e] 	 * rack-protection (2.0.1)
+ DEBUG [048bd55e] 	 * tilt (2.0.8)
+ DEBUG [048bd55e] 	 * sinatra (2.0.1)
+ DEBUG [048bd55e] 	 * sinatra-contrib (2.0.1)
+ DEBUG [048bd55e] 	 * thin (1.7.2)
+ DEBUG [048bd55e] 	 * turnout (2.4.1)
+ DEBUG [048bd55e] 	Install missing gems with `bundle install`
+ DEBUG [048bd55e] Finished in 0.709 seconds with exit status 1 (failed).
+  INFO [4d58a5de] Running $HOME/.rbenv/bin/rbenv exec bundle install --path /home/wolf/isaveu_web/shared/bundle --without development test --deployment --quiet as wolf@isaveu.com.br
+ DEBUG [4d58a5de] Command: cd /home/wolf/isaveu_web/releases/20180603223946 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; $HOME/.rbenv/bin/rbenv exec bundle install --path /home/wolf/isaveu_web/shared/bundle --without development test --deployment --quiet )
+  INFO [4d58a5de] Finished in 41.591 seconds with exit status 0 (successful).
+  INFO [e8d2a80a] Running /usr/bin/env ln -s /home/wolf/isaveu_web/releases/20180603223946 /home/wolf/isaveu_web/releases/current as wolf@isaveu.com.br
+ DEBUG [e8d2a80a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env ln -s /home/wolf/isaveu_web/releases/20180603223946 /home/wolf/isaveu_web/releases/current )
+  INFO [e8d2a80a] Finished in 0.443 seconds with exit status 0 (successful).
+  INFO [f44aa738] Running /usr/bin/env mv /home/wolf/isaveu_web/releases/current /home/wolf/isaveu_web as wolf@isaveu.com.br
+ DEBUG [f44aa738] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env mv /home/wolf/isaveu_web/releases/current /home/wolf/isaveu_web )
+  INFO [f44aa738] Finished in 0.386 seconds with exit status 0 (successful).
+ DEBUG [13fac377] Running /usr/bin/env ls -x /home/wolf/isaveu_web/releases as wolf@isaveu.com.br
+ DEBUG [13fac377] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env ls -x /home/wolf/isaveu_web/releases )
+ DEBUG [13fac377] 	20180603222716	20180603223946
+ DEBUG [13fac377] Finished in 0.386 seconds with exit status 0 (successful).
+ DEBUG [d8725f38] Running if test ! -d /home/wolf/isaveu_web/releases; then echo "Directory does not exist '/home/wolf/isaveu_web/releases'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [d8725f38] Command: if test ! -d /home/wolf/isaveu_web/releases; then echo "Directory does not exist '/home/wolf/isaveu_web/releases'" 1>&2; false; fi
+ DEBUG [d8725f38] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [98ff3eb1] Running /usr/bin/env echo "Branch master (at 852b2654e9d9c713bdde44deaad95d8b524ca994) deployed as release 20180603223946 by wolf" >> /home/wolf/isaveu_web/revisions.log as wolf@isaveu.com.br
+ DEBUG [98ff3eb1] Command: cd /home/wolf/isaveu_web/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" ; /usr/bin/env echo "Branch master (at 852b2654e9d9c713bdde44deaad95d8b524ca994) deployed as release 20180603223946 by wolf" >> /home/wolf/isaveu_web/revisions.log )
+  INFO [98ff3eb1] Finished in 0.381 seconds with exit status 0 (successful).
+ DEBUG [5e262893] Running if test ! -d /home/wolf/isaveu_web/current; then echo "Directory does not exist '/home/wolf/isaveu_web/current'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [5e262893] Command: if test ! -d /home/wolf/isaveu_web/current; then echo "Directory does not exist '/home/wolf/isaveu_web/current'" 1>&2; false; fi
+ DEBUG [5e262893] Finished in 0.377 seconds with exit status 0 (successful).
+ DEBUG [ff373ba9] Running [ -f /home/wolf/isaveu_web/shared/tmp/pids/puma.pid ] as wolf@isaveu.com.br
+ DEBUG [ff373ba9] Command: [ -f /home/wolf/isaveu_web/shared/tmp/pids/puma.pid ]
+ DEBUG [ff373ba9] Finished in 0.381 seconds with exit status 1 (failed).
+ DEBUG [ba1f7088] Running [ -f /home/wolf/isaveu_web/shared/puma.rb ] as wolf@isaveu.com.br
+ DEBUG [ba1f7088] Command: [ -f /home/wolf/isaveu_web/shared/puma.rb ]
+ DEBUG [ba1f7088] Finished in 0.384 seconds with exit status 0 (successful).
+  INFO using conf file /home/wolf/isaveu_web/shared/puma.rb
+ DEBUG [ffeb4757] Running [ -f /home/wolf/isaveu_web/shared/tmp/pids/puma.pid ] as wolf@isaveu.com.br
+ DEBUG [ffeb4757] Command: [ -f /home/wolf/isaveu_web/shared/tmp/pids/puma.pid ]
+ DEBUG [ffeb4757] Finished in 0.391 seconds with exit status 1 (failed).
+ DEBUG [5ac8ab8f] Running if test ! -d /home/wolf/isaveu_web/current; then echo "Directory does not exist '/home/wolf/isaveu_web/current'" 1>&2; false; fi as wolf@isaveu.com.br
+ DEBUG [5ac8ab8f] Command: if test ! -d /home/wolf/isaveu_web/current; then echo "Directory does not exist '/home/wolf/isaveu_web/current'" 1>&2; false; fi
+ DEBUG [5ac8ab8f] Finished in 0.378 seconds with exit status 0 (successful).
+  INFO [201a0b88] Running $HOME/.rbenv/bin/rbenv exec bundle exec puma -C /home/wolf/isaveu_web/shared/puma.rb --daemon as wolf@isaveu.com.br
+ DEBUG [201a0b88] Command: cd /home/wolf/isaveu_web/current && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.3" RACK_ENV="production" ; $HOME/.rbenv/bin/rbenv exec bundle exec puma -C /home/wolf/isaveu_web/shared/puma.rb --daemon )
+ DEBUG [201a0b88] 	bundler: command not found: puma
+ DEBUG [201a0b88] 	Install missing gem executables with `bundle install`
