@@ -13,7 +13,6 @@ module Services
         params_datastore_mapping = {
           'contact-service' => 'Tipo de Serviço',
           'contact-name' => 'Nome',
-          'contact-option' => 'Forma de contato',
           'contact-whatsapp' => 'Whatsapp',
           'contact-phone' => 'Telefone',
           'contact-email' => 'Email',
