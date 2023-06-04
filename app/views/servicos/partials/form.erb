@@ -2,7 +2,7 @@
   <h2 class="text-center">Solicitar Orçamento</h2>
   <form id='contact-form' class="row pb30" action="<%= url('/orcamento') %>" method="POST">
     <div class="form-group col-md-12">
-      <input type="text" class="form-control" id="exampleInputName" aria-describedby="userName" placeholder="Nome">
+      <input type="text" class="form-control" name="contact-name" placeholder="Nome">
     </div>
     <div class="form-group col-md-12 selectOptions">
       <select name="contact-option" class="form-control" data-contact-option>
