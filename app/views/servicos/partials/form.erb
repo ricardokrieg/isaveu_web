@@ -26,7 +26,10 @@
       <textarea class="form-control" style="background-color: transparent; color: white" rows="5" name="contact-comment" placeholder="Fale um pouco sobre o serviço que você quer realizar"></textarea>
     </div>
     <div class="col-md-12 text-center">
-      <button type="submit" class="btn btn-default bg-navy">Enviar</button>
+      <button type="submit" class="btn btn-default bg-navy">
+        Enviar
+        <i class="fa fa-spin fa-spinner" style="display: none;"></i>
+      </button>
       <div data-form-result></div>
     </div>
   </form>
@@ -44,12 +47,23 @@
     function submit_contact_form(form) {
       var formData = form.serialize();
 
+      const submitButton = $(form).find('button[type=submit]');
+      const spinner = $(submitButton).find('i.fa-spinner');
+      const formResult = $(form).find('[data-form-result]');
+
+      $(submitButton).attr('disabled', 'disabled');
+      $(spinner).show();
+      $(formResult).html('');
+
       $.post($(form).attr('action'), formData, function(data) {
+        $(submitButton).removeAttr('disabled');
+        $(spinner).hide();
+
         if (data['error']) {
-          $(form).find('[data-form-result]').html(data['error']);
+          $(formResult).html(data['error']);
         } else if (data['success']) {
-          $(form).find('button[type=submit]').hide();
-          $(form).find('[data-form-result]').html(data['success']);
+          $(submitButton).hide();
+          $(formResult).html(data['success']);
         }
       });
     }

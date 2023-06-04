@@ -50,5 +50,4 @@ post '/orcamento' do
     # TODO notify about error
     json error: 'Erro ao enviar orçamento. Por favor, tente novamente mais tarde'
   end
-
 end
