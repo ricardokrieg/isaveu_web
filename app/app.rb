@@ -4,22 +4,28 @@ require 'sinatra/content_for'
 require 'rack/turnout'
 require 'rollbar'
 require 'rollbar/middleware/sinatra'
+require 'logger'
 
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
 require_relative 'services/save_contact'
 
-# TODO how to switch to production only on server?
-set :environment, :development
-
 use Rack::Turnout, maintenance_pages_path: 'app/public'
+use Rack::Logger
 
 configure do
+  # TODO how will this behave when running on server? Will it log to file?
+  logger = Logger.new STDOUT
+  logger.level = Logger::INFO
+  logger.datetime_format = '%a %d-%m-%Y %H%M '
+  set :logger, logger
+
   Rollbar.configure do |config|
-    config.access_token = 'e428e325d5da42ccb3655908b9764eb2'
+    config.access_token = settings.rollbar_token
     config.environment = Sinatra::Base.environment
     config.framework = "Sinatra: #{Sinatra::VERSION}"
+    config.enabled = Sinatra::Base.environment == :production
   end
 end
 

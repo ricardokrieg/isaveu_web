@@ -6,7 +6,7 @@ module Services
   class SaveContact
     class << self
       def save(params)
-        # request.logger.info('SaveContact', params: params)
+        Sinatra::Application.settings.logger.info("SaveContact params=#{params.inspect}")
         Rollbar.info('SaveContact', params: params)
 
         datastore_service = Services::Datastore.instance
@@ -29,7 +29,8 @@ module Services
 
         true
       rescue => e
-        # TODO also log this
+        Sinatra::Application.settings.logger.error("SaveContact error=#{e.message}")
+        Sinatra::Application.settings.logger.error(e.backtrace.join("\n"))
         Rollbar.error(e) rescue nil
 
         false
