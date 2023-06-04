@@ -3,6 +3,8 @@ require 'sinatra/json'
 require 'sinatra/content_for'
 require 'rack/turnout'
 
+require_relative '../config/rollbar_setup'
+
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
@@ -47,7 +49,6 @@ post '/orcamento' do
   if Services::SaveContact.save(params)
     json success: 'Orçamento enviado com sucesso!'
   else
-    # TODO notify about error
     json error: 'Erro ao enviar orçamento. Por favor, tente novamente mais tarde'
   end
 end

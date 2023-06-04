@@ -5,8 +5,8 @@ module Services
     class << self
       def save(params)
         # TODO improve logging
-        # TODO send to Rollbar as well
         p params
+        Rollbar.info('SaveContact', params: params)
 
         datastore_service = Services::Datastore.instance
 
@@ -28,8 +28,9 @@ module Services
 
         true
       rescue => e
-        # TODO Rollbar
-        p e
+        # TODO also log this
+        Rollbar.error(e) rescue nil
+
         false
       end
     end

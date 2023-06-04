@@ -86,6 +86,8 @@ GEM
       rack
     rake (12.3.1)
     rly (0.2.3)
+    rollbar (2.16.0)
+      multi_json
     signet (0.8.1)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -124,6 +126,7 @@ DEPENDENCIES
   google-cloud-datastore
   puma
   rake
+  rollbar
   sinatra
   sinatra-contrib
   turnout
