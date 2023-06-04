@@ -4,11 +4,14 @@ module Services
   class SaveContact
     class << self
       def save(params)
+        # TODO improve logging
+        # TODO send to Rollbar as well
         p params
 
         datastore_service = Services::Datastore.instance
 
         params_datastore_mapping = {
+          'contact-service' => 'Tipo de Serviço',
           'contact-name' => 'Nome',
           'contact-option' => 'Forma de contato',
           'contact-whatsapp' => 'Whatsapp',

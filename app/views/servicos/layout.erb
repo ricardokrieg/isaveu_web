@@ -18,7 +18,7 @@
       </div>
 
       <div class="col-lg-4 sidebar">
-        <%= erb :'servicos/partials/form' %>
+        <%= erb :'servicos/partials/form', locals: {service_name: @title} %>
       </div>
     </div>
   </div>
