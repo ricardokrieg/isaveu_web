@@ -4,7 +4,7 @@
     <input type="hidden" name="contact-service" value="<%= service_name %>">
 
     <div class="form-group col-md-12">
-      <input type="text" class="form-control" name="contact-name" placeholder="Nome">
+      <input type="text" class="form-control" name="contact-name" placeholder="Nome" required="true">
     </div>
     <div class="form-group col-md-12 selectOptions">
       <select name="contact-option" class="form-control" data-contact-option>
@@ -23,7 +23,7 @@
       <input type="email" class="form-control" name="contact-email" placeholder="Email" data-select-field="Contato via Email">
     </div>
     <div class="form-group col-md-12">
-      <textarea class="form-control" style="background-color: transparent; color: white" rows="5" name="contact-comment" placeholder="Fale um pouco sobre o serviço que você quer realizar"></textarea>
+      <textarea class="form-control" style="background-color: transparent; color: white" rows="5" name="contact-comment" placeholder="Fale um pouco sobre o serviço que você quer realizar"  required="true"></textarea>
     </div>
     <div class="col-md-12 text-center">
       <button type="submit" class="btn btn-default bg-navy">
@@ -38,14 +38,20 @@
 <% content_for :javascript do %>
   <script type="text/javascript" charset="utf-8">
     function update_contact_options() {
-      var selectedText = $('[data-contact-option]').closest('.selectOptions').find('.sbHolder a.sbSelector').text();
+      const selectedText = $('[data-contact-option]').closest('.selectOptions').find('.sbHolder a.sbSelector').text();
 
-      $('[data-select-field]').hide();
-      $('[data-select-field="'+selectedText+'"]').show();
+      const selectFields = $('[data-select-field]');
+      const selectedField = $('[data-select-field="'+selectedText+'"]');
+
+      $(selectFields).hide();
+      $(selectFields).removeAttr('required');
+
+      $(selectedField).show();
+      $(selectedField).attr('required', 'required')
     }
 
     function submit_contact_form(form) {
-      var formData = form.serialize();
+      const formData = form.serialize();
 
       const submitButton = $(form).find('button[type=submit]');
       const spinner = $(submitButton).find('i.fa-spinner');
