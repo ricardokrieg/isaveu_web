@@ -1,11 +1,12 @@
+require 'sinatra'
+
 require_relative 'datastore'
 
 module Services
   class SaveContact
     class << self
       def save(params)
-        # TODO improve logging
-        p params
+        # request.logger.info('SaveContact', params: params)
         Rollbar.info('SaveContact', params: params)
 
         datastore_service = Services::Datastore.instance

@@ -2,15 +2,28 @@ require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/content_for'
 require 'rack/turnout'
-
-require_relative '../config/rollbar_setup'
+require 'rollbar'
+require 'rollbar/middleware/sinatra'
 
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
 require_relative 'services/save_contact'
 
+# TODO how to switch to production only on server?
+set :environment, :development
+
 use Rack::Turnout, maintenance_pages_path: 'app/public'
+
+configure do
+  Rollbar.configure do |config|
+    config.access_token = 'e428e325d5da42ccb3655908b9764eb2'
+    config.environment = Sinatra::Base.environment
+    config.framework = "Sinatra: #{Sinatra::VERSION}"
+  end
+end
+
+use Rollbar::Middleware::Sinatra
 
 before(%r{/(.+)/}) { |path| redirect(path, 301) }
 
