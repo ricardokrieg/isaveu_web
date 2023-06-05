@@ -10,6 +10,7 @@ require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
 require_relative 'services/save_budget'
+require_relative 'services/save_contact'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -62,6 +63,14 @@ get '/contato' do
   @main_wrapper_class = 'pages'
 
   erb :contact
+end
+
+post '/contato' do
+  if Services::SaveContact.save(params)
+    json success: 'Mensagem enviada com sucesso!'
+  else
+    json error: 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde'
+  end
 end
 
 post '/orcamento' do
