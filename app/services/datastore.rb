@@ -15,7 +15,6 @@ module Services
     end
 
     def save(kind, object)
-      # TODO log this
       name = Time.now.strftime('%Y-%m-%d %H:%M:%S.%L %Z %a')
       object = @datastore.entity(kind, name) do |o|
         object.each do |k, v|
@@ -23,19 +22,19 @@ module Services
         end
       end
 
+      Sinatra::Application.settings.logger.info("Saving DataStore object: #{object.inspect}")
+
       @datastore.save(object)
     end
 
     private
 
-    # TODO load from somewhere else?
     def project_id
-      'isaveu-205121'
+      Sinatra::Application.settings.gcloud_project_id
     end
 
-    # TODO load from somewhere else?
     def config_file
-      File.join(Sinatra::Application.settings.root, '..', 'config', 'iSaveU-f0d658fd90b8.json')
+      File.join(Sinatra::Application.settings.root, '..', 'config', 'gcloud_credentials.json')
     end
   end
 end
