@@ -9,7 +9,7 @@ require 'logger'
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
-require_relative 'services/save_contact'
+require_relative 'services/save_budget'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -65,7 +65,7 @@ get '/contato' do
 end
 
 post '/orcamento' do
-  if Services::SaveContact.save(params)
+  if Services::SaveBudget.save(params)
     json success: 'Orçamento enviado com sucesso!'
   else
     json error: 'Erro ao enviar orçamento. Por favor, tente novamente mais tarde'
