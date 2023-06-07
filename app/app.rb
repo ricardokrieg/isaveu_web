@@ -9,7 +9,7 @@ require 'logger'
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
-require_relative 'services/save_budget'
+require_relative 'services/save_budget_request'
 require_relative 'services/save_contact'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
@@ -31,6 +31,19 @@ configure do
 end
 
 use Rollbar::Middleware::Sinatra
+
+helpers do
+  def protected!
+    return if authorized?
+    headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
+    halt 401, "Not authorized\n"
+  end
+
+  def authorized?
+    @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'iSaveU$123']
+  end
+end
 
 before(%r{/(.+)/}) { |path| redirect(path, 301) }
 
@@ -73,10 +86,16 @@ post '/contato' do
   end
 end
 
-post '/orcamento' do
-  if Services::SaveBudget.save(params)
-    json success: 'Orçamento enviado com sucesso!'
+post '/solicitar-orcamento' do
+  if Services::SaveBudgetRequest.save(params)
+    json success: 'Solicitação enviada com sucesso!'
   else
-    json error: 'Erro ao enviar orçamento. Por favor, tente novamente mais tarde'
+    json error: 'Erro ao enviar solicitação. Por favor, tente novamente mais tarde'
   end
+end
+
+get '/admin' do
+  protected!
+
+  erb :admin
 end

@@ -1,4 +1,5 @@
 require 'singleton'
+require 'securerandom'
 require 'google/cloud/datastore'
 
 module Services
@@ -15,7 +16,8 @@ module Services
     end
 
     def save(kind, object)
-      name = Time.now.strftime('%Y-%m-%d %H:%M:%S.%L %Z %a')
+      name = SecureRandom.uuid
+
       object = @datastore.entity(kind, name) do |o|
         object.each do |k, v|
           o[k] = v
