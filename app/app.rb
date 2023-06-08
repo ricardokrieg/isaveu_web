@@ -11,6 +11,7 @@ require_relative 'helpers/menu'
 require_relative 'services/list_services'
 require_relative 'services/save_budget_request'
 require_relative 'services/save_contact'
+require_relative 'services/get_budget_request'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -96,6 +97,9 @@ end
 
 get '/admin' do
   protected!
+
+  @budget_requests = Services::GetBudgetRequest.all
+  # @contacts = Services::GetContact.all
 
   erb :admin
 end

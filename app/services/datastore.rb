@@ -29,6 +29,13 @@ module Services
       @datastore.save(object)
     end
 
+    def load(kind)
+      query = Google::Cloud::Datastore::Query.new
+      query.kind(kind)
+
+      @datastore.run(query)
+    end
+
     private
 
     def project_id
