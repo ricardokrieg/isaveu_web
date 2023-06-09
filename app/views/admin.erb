@@ -25,6 +25,7 @@
                 <th>Token</th>
                 <th>Status</th>
                 <th>Criado Em</th>
+                <th>Atualizado Em</th>
                 <th>Tipo de Serviço</th>
                 <th>Nome</th>
                 <th>Telefone</th>
@@ -36,14 +37,15 @@
               <% @budgets.each_with_index do |budget, i| %>
               <tr>
                 <th scope="row"><%= i + 1 %></th>
-                <td><a href="<%= url("/admin/#{budget.key.name}") %>"><%= budget.key.name %></a></td>
-                <td><%= budget['Status'] %></td>
-                <td><%= budget['Timestamp'] %></td>
-                <td><%= budget['Tipo de Serviço'] %></td>
-                <td><%= budget['Nome'] %></td>
-                <td><%= budget['Telefone'] %></td>
-                <td><%= budget['Whatsapp'] %></td>
-                <td><%= budget['Email'] %></td>
+                <td><a href="<%= url("/admin/#{budget.token}") %>"><%= budget.token %></a></td>
+                <td><%= budget.status %></td>
+                <td><%= budget.created_at %></td>
+                <td><%= budget.updated_at %></td>
+                <td><%= budget.service %></td>
+                <td><%= budget.name %></td>
+                <td><%= budget.phone %></td>
+                <td><%= budget.whatsapp %></td>
+                <td><%= budget.email %></td>
               </tr>
               <% end %>
               </tbody>

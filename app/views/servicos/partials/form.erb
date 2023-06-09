@@ -1,29 +1,29 @@
 <section id="solicitar-orcamento" class="home-form bg-navy" id="quote" style="padding: 20px">
   <h2 class="text-center">Solicitar Orçamento</h2>
   <form id='contact-form' class="row pb30" action="<%= url('/solicitar-orcamento') %>" method="POST">
-    <input type="hidden" name="contact-service" value="<%= service_name %>">
+    <input type="hidden" name="service" value="<%= service_name %>">
 
     <div class="form-group col-md-12">
-      <input type="text" class="form-control" name="contact-name" placeholder="Nome" required="true">
+      <input type="text" class="form-control" name="name" placeholder="Nome" required="true">
     </div>
     <div class="form-group col-md-12 selectOptions">
-      <select name="contact-option" class="form-control" data-contact-option>
+      <select name="option" class="form-control" data-contact-option>
         <option name="whatsapp">Contato via Whatsapp</option>
         <option name="Telefone">Contato via Telefone</option>
         <option name="email">Contato via Email</option>
       </select>
     </div>
     <div class="form-group col-md-12">
-      <input type="text" class="form-control" name="contact-whatsapp" placeholder="Whatsapp" data-select-field="Contato via Whatsapp">
+      <input type="text" class="form-control" name="whatsapp" placeholder="Whatsapp" data-select-field="Contato via Whatsapp">
     </div>
     <div class="form-group col-md-12">
-      <input type="text" class="form-control" name="contact-phone" placeholder="Telefone" data-select-field="Contato via Telefone">
+      <input type="text" class="form-control" name="phone" placeholder="Telefone" data-select-field="Contato via Telefone">
     </div>
     <div class="form-group col-md-12">
-      <input type="email" class="form-control" name="contact-email" placeholder="Email" data-select-field="Contato via Email">
+      <input type="email" class="form-control" name="email" placeholder="Email" data-select-field="Contato via Email">
     </div>
     <div class="form-group col-md-12">
-      <textarea class="form-control" style="background-color: transparent; color: white" rows="5" name="contact-comment" placeholder="Fale um pouco sobre o serviço que você quer realizar"  required="true"></textarea>
+      <textarea class="form-control" style="background-color: transparent; color: white" rows="5" name="comment" placeholder="Fale um pouco sobre o serviço que você quer realizar"  required="true"></textarea>
     </div>
     <div class="col-md-12 text-center">
       <button type="submit" class="btn btn-default bg-navy">

@@ -16,10 +16,12 @@ module Services
           'contact-phone' => 'Telefone',
           'contact-email' => 'Email',
           'contact-comment' => 'Comentário',
+          'contact-status' => 'Status',
+          'contact-budget-text' => 'Texto do Orçamento',
         }
         datastore_attrs = {}
         params_datastore_mapping.each do |k, v|
-          datastore_attrs[v] = attrs[k]
+          datastore_attrs[v] = attrs[k] if attrs[k]
         end
 
         datastore_service = Services::Datastore.instance

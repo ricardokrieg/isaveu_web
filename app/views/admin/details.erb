@@ -17,13 +17,14 @@
       <div class="col-12 col-lg-12 element-content">
         <div id="tables" class="element_single">
           <div class="display-single_element">
-            <h3 style="margin: 30px 0">Detalhes <%= @budget.key.name %></h3>
+            <h3 style="margin: 30px 0">Detalhes <%= @budget.token %></h3>
 
-            <a class="btn btn-primary btn-default" href="<%= url("/admin/#{@budget.key.name}/editar") %>">Editar</a>
-
-            <form action="<%= url("/admin/#{@budget.key.name}/gerar-orcamento") %>" method="POST">
-              <button type="submit" class="btn btn-success">Gerar Orçamento</button>
-            </form>
+            <div class="actions">
+              <a class="btn btn-primary float-left" href="<%= url("/admin/#{@budget.token}/editar") %>">Editar</a>
+              <% if @budget.status == 'Novo' || true %>
+                <a class="btn btn-primary float-left" style="margin-left: 10px" href="<%= url("/admin/#{@budget.token}/gerar-orcamento") %>">Gerar Orçamento</a>
+              <% end %>
+            </div>
 
             <br>
             <br>
@@ -31,31 +32,34 @@
 
             <dl>
               <dt>Token</dt>
-              <dd><%= @budget.key.name %></dd>
+              <dd><%= @budget.token %></dd>
 
               <dt>Status</dt>
-              <dl><%= @budget['Status'] %></dl>
+              <dl><%= @budget.status %></dl>
 
               <dt>Criado Em</dt>
-              <dd><%= @budget['Timestamp'] %></dd>
+              <dd><%= @budget.created_at %></dd>
+
+              <dt>Atualizado Em</dt>
+              <dd><%= @budget.updated_at %></dd>
 
               <dt>Tipo de Serviço</dt>
-              <dd><%= @budget['Tipo de Serviço'] %></dd>
+              <dd><%= @budget.service %></dd>
 
               <dt>Nome</dt>
-              <dd><%= @budget['Nome'] %></dd>
+              <dd><%= @budget.name %></dd>
 
               <dt>Telefone</dt>
-              <dd><%= @budget['Telefone'] %></dd>
+              <dd><%= @budget.phone %></dd>
 
               <dt>Whatsapp</dt>
-              <dd><%= @budget['Whatsapp'] %></dd>
+              <dd><%= @budget.whatsapp %></dd>
 
               <dt>Email</dt>
-              <dd><%= @budget['Email'] %></dd>
+              <dd><%= @budget.email %></dd>
 
               <dt>Comentário</dt>
-              <dd><%= @budget['Comentário'] %></dd>
+              <dd><%= @budget.comment %></dd>
             </dl>
           </div>
         </div>

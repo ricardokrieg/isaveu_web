@@ -22,8 +22,6 @@ module Services
         object.each do |k, v|
           e[k] = v
         end
-
-        e['Timestamp'] = Time.now
       end
 
       Sinatra::Application.settings.logger.info("Saving DataStore entity: #{entity.inspect}")

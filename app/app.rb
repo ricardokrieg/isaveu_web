@@ -8,11 +8,10 @@ require 'logger'
 
 require_relative '../config/settings'
 require_relative 'helpers/menu'
+require_relative 'models/budget'
 require_relative 'services/list_services'
-require_relative 'services/save_budget'
 require_relative 'services/save_contact'
-require_relative 'services/get_budget'
-require_relative 'services/generate_budget'
+# require_relative 'services/get_budget'
 require_relative 'services/update_budget'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
@@ -90,17 +89,25 @@ post '/contato' do
 end
 
 post '/solicitar-orcamento' do
-  if Services::SaveBudget.save(params)
+  budget = Budget.new(params)
+
+  if budget.save
     json success: 'Solicitação enviada com sucesso!'
   else
     json error: 'Erro ao enviar solicitação. Por favor, tente novamente mais tarde'
   end
 end
 
+get '/orcamento/:token' do
+  @budget = Budget.find(params[:token])
+
+  erb :orcamento
+end
+
 get '/admin' do
   protected!
 
-  @budgets = Services::GetBudget.all
+  @budgets = Budget.all
   # @contacts = Services::GetContact.all
 
   erb :admin
@@ -109,7 +116,7 @@ end
 get '/admin/:token' do
   protected!
 
-  @budget = Services::GetBudget.find(params[:token])
+  @budget = Budget.find(params[:token])
 
   erb :'admin/details'
 end
@@ -117,7 +124,7 @@ end
 get '/admin/:token/editar' do
   protected!
 
-  @budget = Services::GetBudget.find(params[:token])
+  @budget = Budget.find(params[:token])
 
   erb :'admin/edit'
 end
@@ -125,17 +132,17 @@ end
 patch '/admin/:token' do
   protected!
 
-  @budget = Services::GetBudget.find(params[:token])
-  Services::UpdateBudget.update(@budget, params)
+  @budget = Budget.find(params[:token])
+  # TODO if else
+  @budget.update(params)
 
-  redirect(url("/admin/#{@budget.key.name}"))
+  redirect(url("/admin/#{@budget.token}"))
 end
 
-post '/admin/:token/gerar-orcamento' do
+get '/admin/:token/gerar-orcamento' do
   protected!
 
-  @budget = Services::GetBudget.find(params[:token])
-  Services::GenerateBudget.for(@budget)
+  @budget = Budget.find(params[:token])
 
-  redirect(url("/admin/#{@budget.key.name}/editar"))
+  erb :'admin/budget'
 end
