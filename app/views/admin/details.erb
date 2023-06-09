@@ -19,6 +19,8 @@
           <div class="display-single_element">
             <h3 style="margin: 30px 0">Detalhes <%= @budget.key.name %></h3>
 
+            <a class="btn btn-primary btn-default" href="<%= url("/admin/#{@budget.key.name}/editar") %>">Editar</a>
+
             <form action="<%= url("/admin/#{@budget.key.name}/gerar-orcamento") %>" method="POST">
               <button type="submit" class="btn btn-success">Gerar Orçamento</button>
             </form>
@@ -32,28 +34,28 @@
               <dd><%= @budget.key.name %></dd>
 
               <dt>Status</dt>
-              <dl><%= @budget.properties.to_hash['Status'] %></dl>
+              <dl><%= @budget['Status'] %></dl>
 
               <dt>Criado Em</dt>
-              <dd><%= @budget.properties.to_hash['Timestamp'] %></dd>
+              <dd><%= @budget['Timestamp'] %></dd>
 
               <dt>Tipo de Serviço</dt>
-              <dd><%= @budget.properties.to_hash['Tipo de Serviço'] %></dd>
+              <dd><%= @budget['Tipo de Serviço'] %></dd>
 
               <dt>Nome</dt>
-              <dd><%= @budget.properties.to_hash['Nome'] %></dd>
+              <dd><%= @budget['Nome'] %></dd>
 
               <dt>Telefone</dt>
-              <dd><%= @budget.properties.to_hash['Telefone'] %></dd>
+              <dd><%= @budget['Telefone'] %></dd>
 
               <dt>Whatsapp</dt>
-              <dd><%= @budget.properties.to_hash['Whatsapp'] %></dd>
+              <dd><%= @budget['Whatsapp'] %></dd>
 
               <dt>Email</dt>
-              <dd><%= @budget.properties.to_hash['Email'] %></dd>
+              <dd><%= @budget['Email'] %></dd>
 
               <dt>Comentário</dt>
-              <dd><%= @budget.properties.to_hash['Comentário'] %></dd>
+              <dd><%= @budget['Comentário'] %></dd>
             </dl>
           </div>
         </div>

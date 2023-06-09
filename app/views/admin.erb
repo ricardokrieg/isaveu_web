@@ -37,13 +37,13 @@
               <tr>
                 <th scope="row"><%= i + 1 %></th>
                 <td><a href="<%= url("/admin/#{budget.key.name}") %>"><%= budget.key.name %></a></td>
-                <td><%= budget.properties.to_hash['Timestamp'] %></td>
-                <td><%= budget.properties.to_hash['Status'] %></td>
-                <td><%= budget.properties.to_hash['Tipo de Serviço'] %></td>
-                <td><%= budget.properties.to_hash['Nome'] %></td>
-                <td><%= budget.properties.to_hash['Telefone'] %></td>
-                <td><%= budget.properties.to_hash['Whatsapp'] %></td>
-                <td><%= budget.properties.to_hash['Email'] %></td>
+                <td><%= budget['Status'] %></td>
+                <td><%= budget['Timestamp'] %></td>
+                <td><%= budget['Tipo de Serviço'] %></td>
+                <td><%= budget['Nome'] %></td>
+                <td><%= budget['Telefone'] %></td>
+                <td><%= budget['Whatsapp'] %></td>
+                <td><%= budget['Email'] %></td>
               </tr>
               <% end %>
               </tbody>

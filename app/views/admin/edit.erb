@@ -1,0 +1,75 @@
+<section class="">
+  <div class="bg-image-holder bredcrumb bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Admin</h2>
+          <hr class="hr_narrow  hr_color">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-wrapper section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-12 element-content">
+        <div id="tables" class="element_single">
+          <div class="display-single_element">
+            <h3 style="margin: 30px 0">Editar <%= @budget.key.name %></h3>
+
+            <form action="<%= url("/admin/#{@budget.key.name}") %>" method="POST">
+              <input type="hidden" name="_method" value="PATCH">
+
+              <div class="form-group row">
+                <label for="contact-service" class="col-md-12 col-form-label">Tipo de Serviço</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="contact-service" value="<%= @budget['Tipo de Serviço'] %>">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="contact-name" class="col-md-12 col-form-label">Nome</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="contact-name" value="<%= @budget['Nome'] %>">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="contact-phone" class="col-md-12 col-form-label">Telefone</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="contact-phone" value="<%= @budget['Telefone'] %>">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="contact-whatsapp" class="col-md-12 col-form-label">Whatsapp</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="contact-whatsapp" value="<%= @budget['Whatsapp'] %>">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="contact-email" class="col-md-12 col-form-label">Email</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="contact-email" value="<%= @budget['Email'] %>">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="contact-comment" class="col-md-12 col-form-label">Comentário</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="contact-comment" value="<%= @budget['Comentário'] %>">
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-default btn-primary">Salvar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

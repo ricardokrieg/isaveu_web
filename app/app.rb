@@ -13,6 +13,7 @@ require_relative 'services/save_budget'
 require_relative 'services/save_contact'
 require_relative 'services/get_budget'
 require_relative 'services/generate_budget'
+require_relative 'services/update_budget'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -113,11 +114,28 @@ get '/admin/:token' do
   erb :'admin/details'
 end
 
+get '/admin/:token/editar' do
+  protected!
+
+  @budget = Services::GetBudget.find(params[:token])
+
+  erb :'admin/edit'
+end
+
+patch '/admin/:token' do
+  protected!
+
+  @budget = Services::GetBudget.find(params[:token])
+  Services::UpdateBudget.update(@budget, params)
+
+  redirect(url("/admin/#{@budget.key.name}"))
+end
+
 post '/admin/:token/gerar-orcamento' do
   protected!
 
   @budget = Services::GetBudget.find(params[:token])
   Services::GenerateBudget.for(@budget)
 
-  'OK'
+  redirect(url("/admin/#{@budget.key.name}/editar"))
 end
