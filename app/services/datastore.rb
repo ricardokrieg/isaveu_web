@@ -18,17 +18,27 @@ module Services
     def save(kind, object)
       name = SecureRandom.uuid
 
-      object = @datastore.entity(kind, name) do |o|
+      entity = @datastore.entity(kind, name) do |e|
         object.each do |k, v|
-          o[k] = v
+          e[k] = v
         end
 
-        o['Timestamp'] = Time.now
+        e['Timestamp'] = Time.now
       end
 
-      Sinatra::Application.settings.logger.info("Saving DataStore object: #{object.inspect}")
+      Sinatra::Application.settings.logger.info("Saving DataStore entity: #{entity.inspect}")
 
-      @datastore.save(object)
+      @datastore.save(entity)
+    end
+
+    def update(entity, attrs)
+      Sinatra::Application.settings.logger.info("Updating DataStore entity: #{entity.inspect} (#{attrs.inspect})")
+
+      attrs.each do |k, v|
+        entity[k] = v
+      end
+
+      @datastore.save(entity)
     end
 
     def query(kind)

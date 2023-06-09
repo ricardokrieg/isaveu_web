@@ -12,6 +12,7 @@ require_relative 'services/list_services'
 require_relative 'services/save_budget'
 require_relative 'services/save_contact'
 require_relative 'services/get_budget'
+require_relative 'services/generate_budget'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -116,6 +117,7 @@ post '/admin/:token/gerar-orcamento' do
   protected!
 
   @budget = Services::GetBudget.find(params[:token])
+  Services::GenerateBudget.for(@budget)
 
   'OK'
 end
