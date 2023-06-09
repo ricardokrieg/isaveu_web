@@ -22,6 +22,8 @@ module Services
         object.each do |k, v|
           o[k] = v
         end
+
+        o['Timestamp'] = Time.now
       end
 
       Sinatra::Application.settings.logger.info("Saving DataStore object: #{object.inspect}")
@@ -29,11 +31,18 @@ module Services
       @datastore.save(object)
     end
 
-    def load(kind)
+    def query(kind)
       query = Google::Cloud::Datastore::Query.new
       query.kind(kind)
 
       @datastore.run(query)
+    end
+
+    def find(kind, name)
+      query = Google::Cloud::Datastore::Key.new(kind, name)
+      entities = @datastore.lookup(query)
+
+      entities.first
     end
 
     private

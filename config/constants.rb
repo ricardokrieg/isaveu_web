@@ -1,1 +1,1 @@
-BUDGET_REQUEST = 'BudgetRequest'
+BUDGET = 'Budget'

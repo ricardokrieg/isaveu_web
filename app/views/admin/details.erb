@@ -1,0 +1,64 @@
+<section class="">
+  <div class="bg-image-holder bredcrumb bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Admin</h2>
+          <hr class="hr_narrow  hr_color">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-wrapper section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-12 element-content">
+        <div id="tables" class="element_single">
+          <div class="display-single_element">
+            <h3 style="margin: 30px 0">Detalhes <%= @budget.key.name %></h3>
+
+            <form action="<%= url("/admin/#{@budget.key.name}/gerar-orcamento") %>" method="POST">
+              <button type="submit" class="btn btn-success">Gerar Orçamento</button>
+            </form>
+
+            <br>
+            <br>
+            <br>
+
+            <dl>
+              <dt>Token</dt>
+              <dd><%= @budget.key.name %></dd>
+
+              <dt>Status</dt>
+              <dl><%= @budget.properties.to_hash['Status'] %></dl>
+
+              <dt>Criado Em</dt>
+              <dd><%= @budget.properties.to_hash['Timestamp'] %></dd>
+
+              <dt>Tipo de Serviço</dt>
+              <dd><%= @budget.properties.to_hash['Tipo de Serviço'] %></dd>
+
+              <dt>Nome</dt>
+              <dd><%= @budget.properties.to_hash['Nome'] %></dd>
+
+              <dt>Telefone</dt>
+              <dd><%= @budget.properties.to_hash['Telefone'] %></dd>
+
+              <dt>Whatsapp</dt>
+              <dd><%= @budget.properties.to_hash['Whatsapp'] %></dd>
+
+              <dt>Email</dt>
+              <dd><%= @budget.properties.to_hash['Email'] %></dd>
+
+              <dt>Comentário</dt>
+              <dd><%= @budget.properties.to_hash['Comentário'] %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

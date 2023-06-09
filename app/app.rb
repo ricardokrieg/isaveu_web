@@ -9,9 +9,9 @@ require 'logger'
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'services/list_services'
-require_relative 'services/save_budget_request'
+require_relative 'services/save_budget'
 require_relative 'services/save_contact'
-require_relative 'services/get_budget_request'
+require_relative 'services/get_budget'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -88,7 +88,7 @@ post '/contato' do
 end
 
 post '/solicitar-orcamento' do
-  if Services::SaveBudgetRequest.save(params)
+  if Services::SaveBudget.save(params)
     json success: 'Solicitação enviada com sucesso!'
   else
     json error: 'Erro ao enviar solicitação. Por favor, tente novamente mais tarde'
@@ -98,8 +98,24 @@ end
 get '/admin' do
   protected!
 
-  @budget_requests = Services::GetBudgetRequest.all
+  @budgets = Services::GetBudget.all
   # @contacts = Services::GetContact.all
 
   erb :admin
+end
+
+get '/admin/:token' do
+  protected!
+
+  @budget = Services::GetBudget.find(params[:token])
+
+  erb :'admin/details'
+end
+
+post '/admin/:token/gerar-orcamento' do
+  protected!
+
+  @budget = Services::GetBudget.find(params[:token])
+
+  'OK'
 end
