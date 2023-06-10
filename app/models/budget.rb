@@ -8,7 +8,7 @@ class Budget < Base
   def initialize(attrs)
     super(attrs)
 
-    @status ||= 'Novo'
+    @status ||= STATUS_NEW
   end
 
   def to_entity
@@ -93,5 +93,9 @@ class Budget < Base
     Budget.log_exception('Budget#update', e)
 
     false
+  end
+
+  def status_new?
+    @status == STATUS_NEW
   end
 end

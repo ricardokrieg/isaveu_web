@@ -22,12 +22,16 @@
             <form action="<%= url("/admin/#{@budget.token}") %>" method="POST">
               <input type="hidden" name="_method" value="PATCH">
 
-              <input type="hidden" name="status" value="Aguardando Aprovação">
+              <% if @budget.status_new? %>
+                <input type="hidden" name="status" value="<%= @status_waiting_approval %>">
+              <% end %>
 
               <div class="form-group row">
                 <label for="budget-text" class="col-md-12 col-form-label">Texto do Orçamento</label>
                 <div class="col-md-10">
-                  <textarea class="form-control" name="budget-text" cols="30" rows="10" placeholder="Cole o texto aqui..."></textarea>
+                  <textarea class="form-control" name="budget_text" cols="30" rows="10" placeholder="Cole o texto aqui...">
+                    <%= @budget.budget_text %>
+                  </textarea>
                 </div>
               </div>
 
