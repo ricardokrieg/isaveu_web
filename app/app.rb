@@ -9,10 +9,8 @@ require 'logger'
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'models/budget'
+require_relative 'models/contact'
 require_relative 'services/list_services'
-require_relative 'services/save_contact'
-# require_relative 'services/get_budget'
-require_relative 'services/update_budget'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -81,7 +79,9 @@ get '/contato' do
 end
 
 post '/contato' do
-  if Services::SaveContact.save(params)
+  contact = Contact.new(params)
+
+  if contact.save
     json success: 'Mensagem enviada com sucesso!'
   else
     json error: 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde'
@@ -108,7 +108,7 @@ get '/admin' do
   protected!
 
   @budgets = Budget.all
-  # @contacts = Services::GetContact.all
+  @contacts = Contact.all
 
   erb :admin
 end
@@ -145,4 +145,12 @@ get '/admin/:token/gerar-orcamento' do
   @budget = Budget.find(params[:token])
 
   erb :'admin/budget'
+end
+
+get '/admin/contato/:token' do
+  protected!
+
+  @contact = Contact.find(params[:token])
+
+  erb :'admin/contact_details'
 end

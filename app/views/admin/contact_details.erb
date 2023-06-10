@@ -1,0 +1,54 @@
+<section class="">
+  <div class="bg-image-holder bredcrumb bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Admin</h2>
+          <hr class="hr_narrow  hr_color">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-wrapper section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-12 element-content">
+        <div id="tables" class="element_single">
+          <div class="display-single_element">
+            <h3 style="margin: 30px 0">Detalhes de Contato <%= @contact.token %></h3>
+
+            <br>
+            <br>
+            <br>
+
+            <dl>
+              <dt>Token</dt>
+              <dd><%= @contact.token %></dd>
+
+              <dt>Criado Em</dt>
+              <dd><%= @contact.created_at %></dd>
+
+              <dt>Nome</dt>
+              <dd><%= @contact.name %></dd>
+
+              <dt>Telefone</dt>
+              <dd><%= @contact.phone %></dd>
+
+              <dt>Email</dt>
+              <dd><%= @contact.email %></dd>
+
+              <dt>Assunto</dt>
+              <dd><%= @contact.subject %></dd>
+
+              <dt>Message</dt>
+              <dd><%= @contact.message %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

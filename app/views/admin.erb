@@ -57,3 +57,43 @@
   </div>
 </div>
 
+<div class="grid-wrapper section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-12 element-content">
+        <div id="tables" class="element_single">
+          <div class="display-single_element">
+            <h3 style="margin: 30px 0">Contatos</h3>
+            <table class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Token</th>
+                <th>Criado Em</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Assunto</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @contacts.each_with_index do |contact, i| %>
+                <tr>
+                  <th scope="row"><%= i + 1 %></th>
+                  <td><a href="<%= url("/admin/contato/#{contact.token}") %>"><%= contact.token %></a></td>
+                  <td><%= contact.created_at %></td>
+                  <td><%= contact.name %></td>
+                  <td><%= contact.phone %></td>
+                  <td><%= contact.email %></td>
+                  <td><%= contact.subject %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

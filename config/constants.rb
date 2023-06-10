@@ -1,1 +1,2 @@
 BUDGET = 'Budget'
+CONTACT = 'Contact'
