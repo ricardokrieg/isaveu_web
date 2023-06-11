@@ -101,6 +101,10 @@ end
 get '/orcamento/:token' do
   @budget = Budget.find(params[:token])
 
+  if @budget.budget_text == ''
+    halt 404, 'Este orçamento não está disponível'
+  end
+
   erb :orcamento
 end
 
