@@ -139,15 +139,6 @@ patch '/admin/:token' do
   redirect(url("/admin/#{@budget.token}"))
 end
 
-get '/admin/:token/gerar-orcamento' do
-  protected!
-
-  @budget = Budget.find(params[:token])
-  @status_waiting_approval = STATUS_WAITING_APPROVAL
-
-  erb :'admin/budget'
-end
-
 get '/admin/contato/:token' do
   protected!
 

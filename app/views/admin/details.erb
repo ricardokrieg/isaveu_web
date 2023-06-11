@@ -21,9 +21,6 @@
 
             <div class="actions">
               <a class="btn btn-primary float-left" href="<%= url("/admin/#{@budget.token}/editar") %>">Editar</a>
-              <% if @budget.status == 'Novo' || true %>
-                <a class="btn btn-primary float-left" style="margin-left: 10px" href="<%= url("/admin/#{@budget.token}/gerar-orcamento") %>">Gerar Orçamento</a>
-              <% end %>
             </div>
 
             <br>
@@ -60,6 +57,11 @@
 
               <dt>Comentário</dt>
               <dd><%= @budget.comment %></dd>
+
+              <dt>Orçamento</dt>
+              <div class="trix-content-budget">
+                <%= @budget.budget_text %>
+              </div>
             </dl>
           </div>
         </div>

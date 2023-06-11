@@ -15,12 +15,16 @@ module Services
       )
     end
 
-    def save(kind, object)
+    def save(kind, object, non_indexed_keys=[])
       name = SecureRandom.uuid
 
       entity = @datastore.entity(kind, name) do |e|
         object.each do |k, v|
           e[k] = v
+        end
+
+        non_indexed_keys.each do |key|
+          e.exclude_from_indexes! key, true
         end
       end
 

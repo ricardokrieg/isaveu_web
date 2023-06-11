@@ -64,6 +64,14 @@
                 </div>
               </div>
 
+              <div class="form-group row">
+                <label for="budget-text" class="col-md-12 col-form-label">Texto do Orçamento</label>
+                <div class="col-md-10">
+                  <input id="budget-text-field" type="hidden" name="budget_text" value="<%= @budget.budget_text %>">
+                  <trix-editor input="budget-text-field" class="trix-content-budget"></trix-editor>
+                </div>
+              </div>
+
               <button type="submit" class="btn btn-default btn-primary">Salvar</button>
             </form>
           </div>
@@ -72,4 +80,12 @@
     </div>
   </div>
 </div>
+
+<% content_for :css do %>
+  <link href="/plugins/trix/trix.css" rel="stylesheet">
+<% end %>
+
+<% content_for :javascript do %>
+  <script src="/plugins/trix/trix.min.js"></script>
+<% end %>
 

@@ -137,3 +137,65 @@ ul.nav-tabs .nav-item .nav-link.active {
     border-color: #ff8b3c;
 }
 
+/*=== Trix Budget Text ===*/
+.trix-content-budget {
+    line-height: 1.5; }
+.trix-content-budget * {
+    box-sizing: border-box; }
+.trix-content-budget h1 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin: 0; }
+.trix-content-budget blockquote {
+    margin: 0 0 0 0.3em;
+    padding: 0 0 0 0.6em;
+    border-left: 0.3em solid #ccc; }
+.trix-content-budget pre {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-family: monospace;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.5em;
+    white-space: pre;
+    background-color: #eee;
+    overflow-x: auto; }
+.trix-content-budget ul, .trix-content-budget ol, .trix-content-budget li {
+    margin: 0;
+    padding: 0; }
+.trix-content-budget ul li, .trix-content-budget ol li, .trix-content-budget li li {
+    margin-left: 1em; }
+.trix-content-budget img {
+    max-width: 100%;
+    height: auto; }
+.trix-content-budget a[data-trix-attachment] {
+    color: inherit;
+    text-decoration: none; }
+.trix-content-budget a[data-trix-attachment]:hover, .trix-content-budget a[data-trix-attachment]:visited:hover {
+    color: inherit; }
+.trix-content-budget .attachment {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0; }
+.trix-content-budget .attachment__caption {
+    padding: 0;
+    text-align: center; }
+.trix-content-budget .attachment__caption .attachment__name + .attachment__size::before {
+    content: ' · '; }
+.trix-content-budget .attachment--preview {
+    width: 100%;
+    text-align: center; }
+.trix-content-budget .attachment--preview .attachment__caption {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.2; }
+.trix-content-budget .attachment--file {
+    color: #333;
+    line-height: 1;
+    margin: 0 2px 2px 0;
+    padding: 0.4em 1em;
+    border: 1px solid #bbb;
+    border-radius: 5px; }
