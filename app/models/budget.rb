@@ -5,6 +5,8 @@ class Budget < Base
     STATUS_NEW,
     STATUS_ACCEPTED,
     STATUS_REJECTED,
+    STATUS_PAID,
+    STATUS_CLOSED,
   ].freeze
 
   attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status, :budget_text, :reject_text
@@ -114,11 +116,23 @@ class Budget < Base
     @status == STATUS_REJECTED
   end
 
+  def status_paid?
+    @status == STATUS_PAID
+  end
+
+  def status_closed?
+    @status == STATUS_CLOSED
+  end
+
   def accept!
     update(status: STATUS_ACCEPTED)
   end
 
   def reject!(reject_text)
     update(status: STATUS_REJECTED, reject_text: reject_text)
+  end
+
+  def has_reject_text?
+    @reject_text != nil && @reject_text != ''
   end
 end

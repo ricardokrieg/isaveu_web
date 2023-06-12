@@ -1,1 +1,7 @@
-Recusado
+<section class="text-center">
+  <h1>Este orçamento foi recusado</h1>
+
+  <% if @budget.has_reject_text? %>
+    <p>Iremos analisar sua resposta e entraremos em contato caso seja apropriado.</p>
+  <% end %>
+</section>

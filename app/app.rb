@@ -105,6 +105,13 @@ get '/orcamento/:token' do
     halt 404, 'Este orçamento não está disponível'
   end
 
+  @bank_transfer_bank = settings.bank_transfer_bank
+  @bank_transfer_agency = settings.bank_transfer_agency
+  @bank_transfer_account = settings.bank_transfer_account
+  @bank_transfer_whatsapp = settings.bank_transfer_whatsapp
+  @bank_transfer_email = settings.bank_transfer_email
+  @bank_transfer_phone = settings.bank_transfer_phone
+
   erb :orcamento
 end
 
