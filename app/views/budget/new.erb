@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="trix-content-budget">
+      <%= @budget.budget_text %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-4 offset-md-4">
+    <div class="row">
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#reject-modal">
+          Recusar
+        </button>
+      </div>
+      <div class="col-sm-6">
+        <form action="<%= url("/orcamento/#{@budget.token}/aceitar") %>" method="POST">
+          <button type="submit" class="btn btn-success">Aceitar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reject-modal" tabindex="-1" role="dialog" aria-labelledby="reject-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="<%= url("/orcamento/#{@budget.token}/recusar") %>" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reject-modal-label">Recusar Orçamento</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <textarea name="reject_text" id="reject-text" cols="30" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Voltar</button>
+          <button type="submit" class="btn btn-danger">Recusar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

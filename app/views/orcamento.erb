@@ -1,11 +1,11 @@
 <section class="services-area services-area2">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="trix-content-budget">
-          <%= @budget.budget_text %>
-        </div>
-      </div>
-    </div>
+    <% if @budget.status_new? %>
+      <%= erb :'budget/new' %>
+    <% elsif @budget.status_accepted? %>
+      <%= erb :'budget/accepted' %>
+    <% elsif @budget.status_rejected? %>
+      <%= erb :'budget/rejected' %>
+    <% end %>
   </div>
 </section>

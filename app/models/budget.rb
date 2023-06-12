@@ -1,7 +1,7 @@
 require_relative 'base'
 
 class Budget < Base
-  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status, :budget_text
+  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status, :budget_text, :reject_text
   attr_accessor :token, :created_at, :updated_at
   attr_accessor :entity
 
@@ -21,6 +21,7 @@ class Budget < Base
       comment: @comment,
       status: @status,
       budget_text: @budget_text,
+      reject_text: @reject_text,
       created_at: @created_at,
       updated_at: @updated_at,
     }
@@ -97,5 +98,21 @@ class Budget < Base
 
   def status_new?
     @status == STATUS_NEW
+  end
+
+  def status_accepted?
+    @status == STATUS_ACCEPTED
+  end
+
+  def status_rejected?
+    @status == STATUS_REJECTED
+  end
+
+  def accept!
+    update(status: STATUS_ACCEPTED)
+  end
+
+  def reject!(reject_text)
+    update(status: STATUS_REJECTED, reject_text: reject_text)
   end
 end

@@ -23,6 +23,13 @@
               <input type="hidden" name="_method" value="PATCH">
 
               <div class="form-group row">
+                <label for="service" class="col-md-12 col-form-label">Status</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="status" value="<%= @budget.status %>">
+                </div>
+              </div>
+
+              <div class="form-group row">
                 <label for="service" class="col-md-12 col-form-label">Tipo de Serviço</label>
                 <div class="col-md-10">
                   <input class="form-control" type="text" name="service" value="<%= @budget.service %>">
@@ -61,6 +68,13 @@
                 <label for="comment" class="col-md-12 col-form-label">Comentário</label>
                 <div class="col-md-10">
                   <input class="form-control" type="text" name="comment" value="<%= @budget.comment %>">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="reject_text" class="col-md-12 col-form-label">Motivo da recusa</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" type="text" name="reject_text"><%= @budget.reject_text %></textarea>
                 </div>
               </div>
 

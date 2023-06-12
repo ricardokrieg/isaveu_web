@@ -108,6 +108,30 @@ get '/orcamento/:token' do
   erb :orcamento
 end
 
+post '/orcamento/:token/aceitar' do
+  @budget = Budget.find(params[:token])
+
+  if @budget.budget_text == ''
+    halt 404, 'Este orçamento não está disponível'
+  end
+
+  @budget.accept!
+
+  redirect(url("/orcamento/#{@budget.token}"))
+end
+
+post '/orcamento/:token/recusar' do
+  @budget = Budget.find(params[:token])
+
+  if @budget.budget_text == ''
+    halt 404, 'Este orçamento não está disponível'
+  end
+
+  @budget.reject!(params[:reject_text])
+
+  redirect(url("/orcamento/#{@budget.token}"))
+end
+
 get '/admin' do
   protected!
 
