@@ -1,6 +1,12 @@
 require_relative 'base'
 
 class Budget < Base
+  STATUSES = [
+    STATUS_NEW,
+    STATUS_ACCEPTED,
+    STATUS_REJECTED,
+  ].freeze
+
   attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status, :budget_text, :reject_text
   attr_accessor :token, :created_at, :updated_at
   attr_accessor :entity

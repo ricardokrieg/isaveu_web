@@ -25,7 +25,11 @@
               <div class="form-group row">
                 <label for="service" class="col-md-12 col-form-label">Status</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="text" name="status" value="<%= @budget.status %>">
+                  <select name="status" class="form-control" style="height: 50px">
+                    <% Budget::STATUSES.each do |status| %>
+                      <option value="<%= status %>" <%= "selected=selected" if @budget.status == status %>><%= status %></option>
+                    <% end %>
+                  </select>
                 </div>
               </div>
 
