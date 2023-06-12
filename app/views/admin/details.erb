@@ -20,7 +20,11 @@
             <h3 style="margin: 30px 0">Detalhes <%= @budget.token %></h3>
 
             <div class="actions">
-              <a class="btn btn-primary float-left" href="<%= url("/admin/#{@budget.token}/editar") %>">Editar</a>
+              <a class="btn btn-primary float-left" style="margin-right: 10px;" href="<%= url("/admin/#{@budget.token}/editar") %>">Editar</a>
+
+              <form action="<%= url("/admin/#{@budget.token}/pago") %>" method="POST">
+                <input type="submit" class="btn btn-success" value="Marcar como pago">
+              </form>
             </div>
 
             <br>
@@ -54,6 +58,9 @@
 
               <dt>Email</dt>
               <dd><%= @budget.email %></dd>
+
+              <dt>Pago em</dt>
+              <dd><%= @budget.paid_at %></dd>
 
               <dt>Comentário</dt>
               <dd><%= @budget.comment %></dd>

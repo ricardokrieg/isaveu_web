@@ -174,6 +174,15 @@ patch '/admin/:token' do
   redirect(url("/admin/#{@budget.token}"))
 end
 
+post '/admin/:token/pago' do
+  protected!
+
+  @budget = Budget.find(params[:token])
+  @budget.pay!
+
+  redirect(url("/admin/#{@budget.token}"))
+end
+
 get '/admin/contato/:token' do
   protected!
 

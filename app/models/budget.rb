@@ -9,7 +9,7 @@ class Budget < Base
     STATUS_CLOSED,
   ].freeze
 
-  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status, :budget_text, :reject_text
+  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status, :budget_text, :reject_text, :paid_at
   attr_accessor :token, :created_at, :updated_at
   attr_accessor :entity
 
@@ -30,6 +30,7 @@ class Budget < Base
       status: @status,
       budget_text: @budget_text,
       reject_text: @reject_text,
+      paid_at: @paid_at,
       created_at: @created_at,
       updated_at: @updated_at,
     }
@@ -130,6 +131,10 @@ class Budget < Base
 
   def reject!(reject_text)
     update(status: STATUS_REJECTED, reject_text: reject_text)
+  end
+
+  def pay!
+    update(status: STATUS_PAID, paid_at: Time.now)
   end
 
   def has_reject_text?
