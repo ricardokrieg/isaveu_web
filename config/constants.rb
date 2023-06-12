@@ -3,4 +3,4 @@ CONTACT = 'Contact'
 
 STATUS_NEW = 'Novo'
 STATUS_ACCEPTED = 'Aceito'
-STATUS_REJECTED = 'Rejeitado'
+STATUS_REJECTED = 'Recusado'

@@ -34,12 +34,18 @@
           </button>
         </div>
         <div class="modal-body">
+          <p>
+            Por favor, nos diga qual o motivo de você estar recusando o orçamento.
+            Se o valor está muito alto, podemos tentar negociar.
+          </p>
+          <br>
+
           <div class="form-group">
-            <textarea name="reject_text" id="reject-text" cols="30" rows="10"></textarea>
+            <textarea name="reject_text" id="reject-text" rows="10" style="width: 100%" placeholder="Digite aqui o motivo"></textarea>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Voltar</button>
+        <div class="modal-footer" style="justify-content: space-around">
+          <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Voltar</button>
           <button type="submit" class="btn btn-danger">Recusar</button>
         </div>
       </form>

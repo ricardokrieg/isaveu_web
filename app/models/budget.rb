@@ -74,7 +74,7 @@ class Budget < Base
     Budget.logger.info("Budget save #{to_entity.inspect}")
     Rollbar.info('New Budget', attrs: to_entity)
 
-    Budget.datastore_service.save(BUDGET, to_entity, ['comment', 'budget_text'])
+    Budget.datastore_service.save(BUDGET, to_entity, ['comment', 'budget_text', 'reject_text'])
 
     true
   rescue => e
