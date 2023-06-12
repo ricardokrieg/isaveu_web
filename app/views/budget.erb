@@ -1,0 +1,46 @@
+<section class="services-area services-area2">
+  <div class="container">
+    <% if @budget.status_rejected? %>
+      <%= erb :'budget/partials/rejected' %>
+    <% end %>
+
+    <% if @budget.status_accepted? %>
+      <%= erb :'budget/partials/accepted' %>
+    <% end %>
+
+    <% if @budget.status_paid? %>
+      <%= erb :'budget/partials/paid' %>
+    <% end %>
+
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="trix-content-budget">
+          <%= @budget.budget_text %>
+        </div>
+      </div>
+    </div>
+
+    <% if @budget.status_new? %>
+      <%= erb :'budget/partials/new' %>
+    <% end %>
+  </div>
+</section>
+
+<% if false %>
+<section class="services-area services-area2">
+  <div class="container">
+    <% if @budget.status_new? %>
+      <%= erb :'budget/new' %>
+    <% elsif @budget.status_accepted? %>
+      <%= erb :'budget/accepted' %>
+    <% elsif @budget.status_rejected? %>
+      <%= erb :'budget/rejected' %>
+    <% elsif @budget.status_paid? %>
+      <%= erb :'budget/paid' %>
+    <% end %>
+  </div>
+</section>
+<% end %>

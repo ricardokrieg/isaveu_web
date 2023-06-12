@@ -112,7 +112,7 @@ get '/orcamento/:token' do
   @bank_transfer_email = settings.bank_transfer_email
   @bank_transfer_phone = settings.bank_transfer_phone
 
-  erb :orcamento
+  erb :budget
 end
 
 post '/orcamento/:token/aceitar' do
