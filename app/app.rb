@@ -105,6 +105,10 @@ get '/orcamento/:token' do
     halt 404, 'Este orçamento não está disponível'
   end
 
+  if @budget.status_closed?
+    return erb :'budget/closed'
+  end
+
   @bank_transfer_bank = settings.bank_transfer_bank
   @bank_transfer_agency = settings.bank_transfer_agency
   @bank_transfer_account = settings.bank_transfer_account

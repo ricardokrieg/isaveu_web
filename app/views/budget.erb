@@ -28,19 +28,3 @@
     <% end %>
   </div>
 </section>
-
-<% if false %>
-<section class="services-area services-area2">
-  <div class="container">
-    <% if @budget.status_new? %>
-      <%= erb :'budget/new' %>
-    <% elsif @budget.status_accepted? %>
-      <%= erb :'budget/accepted' %>
-    <% elsif @budget.status_rejected? %>
-      <%= erb :'budget/rejected' %>
-    <% elsif @budget.status_paid? %>
-      <%= erb :'budget/paid' %>
-    <% end %>
-  </div>
-</section>
-<% end %>
