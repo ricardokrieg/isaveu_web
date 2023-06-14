@@ -5,12 +5,15 @@ require 'rack/turnout'
 require 'rollbar'
 require 'rollbar/middleware/sinatra'
 require 'logger'
+require 'pony'
 
 require_relative '../config/settings'
 require_relative 'helpers/menu'
 require_relative 'models/budget'
 require_relative 'models/contact'
 require_relative 'services/list_services'
+require_relative 'services/create_budget'
+require_relative 'services/create_contact'
 
 use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
@@ -28,6 +31,19 @@ configure do
     config.framework = "Sinatra: #{Sinatra::VERSION}"
     config.enabled = Sinatra::Base.environment == :production
   end
+
+  Pony.options = {
+    via: :smtp,
+    via_options: {
+      address: 'smtpout.secureserver.net',
+      port: 80,
+      enable_starttls_auto: true,
+      user_name: 'contato@isaveu.com.br',
+      password: 'iSaveU$123',
+      authentication: :plain,
+      domain: 'localhost.localdomain'
+    }
+  }
 end
 
 use Rollbar::Middleware::Sinatra
@@ -81,7 +97,7 @@ end
 post '/contato' do
   contact = Contact.new(params)
 
-  if contact.save
+  if Services::CreateContact.new(contact).run
     json success: 'Mensagem enviada com sucesso!'
   else
     json error: 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde'
@@ -91,7 +107,7 @@ end
 post '/solicitar-orcamento' do
   budget = Budget.new(params)
 
-  if budget.save
+  if Services::CreateBudget.new(budget).run
     json success: 'Solicitação enviada com sucesso!'
   else
     json error: 'Erro ao enviar solicitação. Por favor, tente novamente mais tarde'

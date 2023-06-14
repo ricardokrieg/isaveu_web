@@ -69,7 +69,10 @@ GEM
     logging (2.2.2)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
     memoist (0.16.0)
+    mini_mime (1.0.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     mustermann (1.0.2)
@@ -77,6 +80,8 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
     os (0.9.6)
+    pony (1.12)
+      mail (>= 2.0)
     public_suffix (3.0.2)
     puma (3.10.0)
     rack (2.0.4)
@@ -124,6 +129,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-puma!
   google-cloud-datastore
+  pony
   puma
   rake
   rollbar
