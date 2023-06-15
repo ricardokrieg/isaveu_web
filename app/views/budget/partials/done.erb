@@ -1,1 +1,35 @@
-formulário para avaliar
+<% if !@budget.review_rating.nil? %>
+  <p>Obrigado pela sua avaliação.</p>
+<% else %>
+  <p>Por favor, deixe uma avaliação sobre o serviço, para que possamos melhorar:</p>
+  <br>
+  <br>
+
+  <form action="<%= url("/orcamento/#{@budget.token}/avaliar") %>" method="POST">
+    <div class="form-group">
+      <label for="rating">Qual nota você daria para o serviço?</label>
+      <input type="number" name="rating" class="rating" data-max="5" data-min="1" value="<%= @budget.review_rating || 3 %>" data-icon-lib="fa" data-active-icon="fa-star" data-inactive-icon="fa-star-o" />
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+      <label for="comment">Reclamação, sugestão ou comentário:</label>
+      <textarea class="form-control" name="comment" rows="8"><%= @budget.review_comment %></textarea>
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Enviar">
+  </form>
+
+  <style>
+    .rating-input i {
+      color: #ff8b3c;
+      font-size: 36px;
+    }
+  </style>
+
+  <% content_for :javascript do %>
+    <script src="/plugins/bootstrap-rating-input/bootstrap-rating-input.min.js"></script>
+  <% end %>
+<% end %>

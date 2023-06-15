@@ -70,6 +70,12 @@
               <dt>Motivo da Recusa</dt>
               <dd><%= @budget.reject_text %></dd>
 
+              <dt>Avaliação</dt>
+              <dd><%= @budget.review_rating %></dd>
+
+              <dt>Comentário sobre o serviço</dt>
+              <dd><%= @budget.review_comment %></dd>
+
               <dt>Orçamento</dt>
               <div class="trix-content-budget">
                 <%= @budget.budget_text %>
