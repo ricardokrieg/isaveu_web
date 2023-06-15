@@ -35,13 +35,13 @@ configure do
   Pony.options = {
     via: :smtp,
     via_options: {
-      address: settings.smtp_address,
-      port: settings.smtp_port,
+      address: settings.email_smtp_address,
+      port: settings.email_smtp_port,
       enable_starttls_auto: true,
-      user_name: settings.smtp_user,
-      password: settings.smtp_password,
+      user_name: settings.email_smtp_user,
+      password: settings.email_smtp_password,
       authentication: :plain,
-      domain: settings.smtp_domain,
+      domain: settings.email_smtp_domain,
     }
   }
 end
@@ -158,6 +158,9 @@ post '/orcamento/:token/recusar' do
 
   redirect(url("/orcamento/#{@budget.token}"))
 end
+
+#=== Admin
+#===============================================================================
 
 get '/admin' do
   protected!
