@@ -21,6 +21,7 @@ module Services
 
       false
     rescue => e
+      # TODO rollbar. logger
       puts e
       false
     end

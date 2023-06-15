@@ -57,7 +57,7 @@ class Contact < Base
     Contact.logger.info("Contact save #{to_entity.inspect}")
     Rollbar.info('New Contact', attrs: to_entity)
 
-    Contact.datastore_service.save(CONTACT, to_entity, ['subject', 'message'])
+    @token = Contact.datastore_service.save(CONTACT, to_entity, ['subject', 'message'])
 
     true
   rescue => e

@@ -31,6 +31,8 @@ module Services
       Sinatra::Application.settings.logger.info("Saving DataStore entity: #{entity.inspect}")
 
       @datastore.save(entity)
+
+      name
     end
 
     def update(entity, attrs)

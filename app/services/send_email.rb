@@ -9,7 +9,7 @@ module Services
     end
 
     def run
-      Pony.mail(to: @to, from: Sinatra::Application.settings.email, subject: @subject, body: @body)
+      Pony.mail(to: @to, from: Sinatra::Application.settings.email, subject: @subject, html_body: @body)
     end
   end
 end
