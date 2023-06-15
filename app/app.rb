@@ -117,12 +117,12 @@ end
 get '/orcamento/:token' do
   @budget = Budget.find(params[:token])
 
-  if @budget.budget_text == ''
+  if @budget.status_new? && @budget.budget_text == ''
     halt 404, 'Este orçamento não está disponível'
   end
 
-  if @budget.status_closed?
-    return erb :'budget/closed'
+  if @budget.status_canceled?
+    return erb :'budget/canceled'
   end
 
   @bank_transfer_bank = settings.bank_transfer_bank
@@ -155,6 +155,14 @@ post '/orcamento/:token/recusar' do
   end
 
   @budget.reject!(params[:reject_text])
+
+  redirect(url("/orcamento/#{@budget.token}"))
+end
+
+post '/orcamento/:token/avaliar' do
+  @budget = Budget.find(params[:token])
+
+  @budget.review!(params[:rating], params[:comment])
 
   redirect(url("/orcamento/#{@budget.token}"))
 end

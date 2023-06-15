@@ -12,6 +12,10 @@
       <%= erb :'budget/partials/paid' %>
     <% end %>
 
+    <% if @budget.status_done? %>
+      <%= erb :'budget/partials/done' %>
+    <% end %>
+
     <br>
     <br>
 

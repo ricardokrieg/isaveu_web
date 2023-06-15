@@ -6,10 +6,13 @@ class Budget < Base
     STATUS_ACCEPTED,
     STATUS_REJECTED,
     STATUS_PAID,
-    STATUS_CLOSED,
+    STATUS_DONE,
+    STATUS_CANCELED,
   ].freeze
 
-  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status, :budget_text, :reject_text, :paid_at
+  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status,
+                :budget_text, :reject_text, :paid_at, :review_rating,
+                :review_comment, :reviewed_at
   attr_accessor :token, :created_at, :updated_at
   attr_accessor :entity
 
@@ -31,6 +34,9 @@ class Budget < Base
       budget_text: @budget_text,
       reject_text: @reject_text,
       paid_at: @paid_at,
+      review_rating: @review_rating,
+      review_comment: @review_comment,
+      reviewed_at: @reviewed_at,
       created_at: @created_at,
       updated_at: @updated_at,
     }
@@ -121,8 +127,12 @@ class Budget < Base
     @status == STATUS_PAID
   end
 
-  def status_closed?
-    @status == STATUS_CLOSED
+  def status_done?
+    @status == STATUS_DONE
+  end
+
+  def status_canceled?
+    @status == STATUS_CANCELED
   end
 
   def accept!
@@ -135,6 +145,10 @@ class Budget < Base
 
   def pay!
     update(status: STATUS_PAID, paid_at: Time.now)
+  end
+
+  def review!(rating, comment)
+    update(review_rating: rating, review_comment: comment, reviewed_at: Time.now)
   end
 
   def has_reject_text?
