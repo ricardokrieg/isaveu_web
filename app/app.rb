@@ -35,13 +35,13 @@ configure do
   Pony.options = {
     via: :smtp,
     via_options: {
-      address: 'smtpout.secureserver.net',
-      port: 80,
+      address: settings.smtp_address,
+      port: settings.smtp_port,
       enable_starttls_auto: true,
-      user_name: 'contato@isaveu.com.br',
-      password: 'iSaveU$123',
+      user_name: settings.smtp_user,
+      password: settings.smtp_password,
       authentication: :plain,
-      domain: 'localhost.localdomain'
+      domain: settings.smtp_domain,
     }
   }
 end
