@@ -1,5 +1,21 @@
 <% if !@budget.review_rating.nil? %>
-  <p>Obrigado pela sua avaliação.</p>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 offset-md-3">
+      <div class="card bg-light">
+        <div class="card-header">Obrigado pela sua avaliação</div>
+        <div class="card-body">
+          <p class="card-text rating-input text-center">
+            <% @budget.review_rating.to_i.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+            <% (5 - @budget.review_rating.to_i).times do %>
+              <i class="fa fa-star-o"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 <% else %>
   <p>Por favor, deixe uma avaliação sobre o serviço, para que possamos melhorar:</p>
   <br>
@@ -22,14 +38,14 @@
     <input type="submit" class="btn btn-success" value="Enviar">
   </form>
 
-  <style>
-    .rating-input i {
-      color: #ff8b3c;
-      font-size: 36px;
-    }
-  </style>
-
   <% content_for :javascript do %>
     <script src="/plugins/bootstrap-rating-input/bootstrap-rating-input.min.js"></script>
   <% end %>
 <% end %>
+
+<style>
+  .rating-input i {
+    color: #ff8b3c;
+    font-size: 36px;
+  }
+</style>
