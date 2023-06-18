@@ -21,8 +21,8 @@ module Services
 
       false
     rescue => e
-      # TODO rollbar. logger
-      puts e
+      Rollbar.error(e) rescue nil
+
       false
     end
 
