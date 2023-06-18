@@ -19,7 +19,6 @@ use Rack::Turnout, maintenance_pages_path: 'app/public'
 use Rack::Logger
 
 configure do
-  # TODO how will this behave when running on server? Will it log to file?
   logger = Logger.new STDOUT
   logger.level = Logger::INFO
   logger.datetime_format = '%a %d-%m-%Y %H%M '
@@ -210,10 +209,13 @@ patch '/admin/:token' do
   protected!
 
   @budget = Budget.find(params[:token])
-  # TODO if else
-  @budget.update(params)
 
-  redirect(url("/admin/#{@budget.token}"))
+  if @budget.update(params) && false
+    redirect(url("/admin/#{@budget.token}"))
+  else
+    @error_message = 'Ocorreu um erro. Não foi possível salvar o Orçamento.'
+    erb :'admin/edit'
+  end
 end
 
 post '/admin/:token/pago' do
