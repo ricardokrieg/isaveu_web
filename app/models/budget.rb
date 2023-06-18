@@ -69,6 +69,8 @@ class Budget < Base
 
     if entity
       logger.info("Budget found #{entity.inspect}")
+    else
+      return nil
     end
 
     from_entity(entity)

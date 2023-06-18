@@ -68,6 +68,15 @@ before do
   @isaveu_email = settings.email
 end
 
+not_found do
+  status 404
+  erb :not_found
+end
+
+error [] do
+  erb :error
+end
+
 get '/' do
   erb :home
 end
@@ -117,7 +126,7 @@ end
 get '/orcamento/:token' do
   @budget = Budget.find(params[:token])
 
-  if @budget.status_new? && @budget.budget_text == ''
+  if @budget.nil? || @budget.status_new? && @budget.budget_text == ''
     halt 404, 'Este orçamento não está disponível'
   end
 
