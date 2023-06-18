@@ -12,7 +12,7 @@ class Budget < Base
 
   attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status,
                 :budget_text, :reject_text, :paid_at, :review_rating,
-                :review_comment, :reviewed_at
+                :review_comment, :reviewed_at, :worker_name
   attr_accessor :token, :created_at, :updated_at
   attr_accessor :entity
 
@@ -37,6 +37,7 @@ class Budget < Base
       review_rating: @review_rating,
       review_comment: @review_comment,
       reviewed_at: @reviewed_at,
+      worker_name: @worker_name,
       created_at: @created_at,
       updated_at: @updated_at,
     }
