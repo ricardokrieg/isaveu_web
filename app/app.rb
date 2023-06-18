@@ -69,11 +69,13 @@ before do
 end
 
 not_found do
+  # TODO Rollbar
   status 404
   erb :not_found
 end
 
 error [] do
+  # TODO Rollbar
   erb :error
 end
 
