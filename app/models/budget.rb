@@ -10,8 +10,8 @@ class Budget < Base
     STATUS_CANCELED,
   ].freeze
 
-  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment, :status,
-                :budget_text, :reject_text, :paid_at, :review_rating,
+  attr_accessor :service, :name, :whatsapp, :phone, :email, :comment
+  attr_accessor :status, :budget_text, :reject_text, :paid_at, :review_rating,
                 :review_comment, :reviewed_at, :worker_name
   attr_accessor :token, :created_at, :updated_at
   attr_accessor :entity

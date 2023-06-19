@@ -58,6 +58,21 @@ helpers do
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
     @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'iSaveU$123']
   end
+
+  def contact_params
+    params.reject {|k, v| !['name', 'phone', 'email', 'subject', 'message'].include?(k) }
+  end
+
+  def budget_params
+    params.reject {|k, v| !['service', 'name', 'whatsapp', 'phone', 'email', 'comment'].include?(k) }
+  end
+
+  def admin_budget_params
+    keys = ['service', 'name', 'whatsapp', 'phone', 'email', 'comment', 'status',
+            'budget_text', 'reject_text', 'paid_at', 'review_rating', 'review_comment',
+            'reviewed_at', 'worker_name']
+    params.reject {|k, v| !keys.include?(k) }
+  end
 end
 
 before(%r{/(.+)/}) { |path| redirect(path, 301) }
@@ -103,7 +118,7 @@ get '/contato' do
 end
 
 post '/contato' do
-  contact = Contact.new(params)
+  contact = Contact.new(contact_params)
 
   if Services::CreateContact.new(contact).run
     json success: 'Mensagem enviada com sucesso!'
@@ -113,7 +128,7 @@ post '/contato' do
 end
 
 post '/solicitar-orcamento' do
-  budget = Budget.new(params)
+  budget = Budget.new(budget_params)
 
   if Services::CreateBudget.new(budget).run
     json success: 'Solicitação enviada com sucesso!'
@@ -217,7 +232,7 @@ patch '/admin/:token' do
 
   @budget = Budget.find(params[:token])
 
-  if @budget.update(params)
+  if @budget.update(admin_budget_params)
     redirect(url("/admin/#{@budget.token}"))
   else
     @error_message = 'Ocorreu um erro. Não foi possível salvar o Orçamento.'
