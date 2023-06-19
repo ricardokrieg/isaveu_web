@@ -1,0 +1,4 @@
+---
+reason: O site está temporariamente fora do ar para manutenção.<br>Por favor, tente novamente mais tarde.
+allowed_paths:
+- ^/admin
