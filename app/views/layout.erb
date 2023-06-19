@@ -52,6 +52,10 @@
   <%= erb :'partials/header' %>
 
   <div class="main-wrapper <%= @main_wrapper_class || 'home' %>">
+    <% if @error_message %>
+      <%= erb :'partials/error_message' %>
+    <% end %>
+
     <%= yield %>
 
     <%= erb :'partials/footer' %>

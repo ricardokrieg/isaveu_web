@@ -1,0 +1,21 @@
+<div class="modal fade" style="z-index: 6666" id="error-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close push-xs-right" data-dismiss="modal" aria-label="Close">
+          <i class="fa fa-close"></i>
+        </button>
+
+        <div class="container-fluid modal-item">
+          <%= @error_message %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript" charset="utf-8">
+    $('#error-modal').modal();
+  </script>
+<% end %>

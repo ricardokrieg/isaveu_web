@@ -150,9 +150,12 @@ post '/orcamento/:token/aceitar' do
     halt 404, 'Este orçamento não está disponível'
   end
 
-  @budget.accept!
-
-  redirect(url("/orcamento/#{@budget.token}"))
+  if @budget.accept!
+    redirect(url("/orcamento/#{@budget.token}"))
+  else
+    @error_message = 'Ocorreu um erro. Não foi possível aceitar o Orçamento.'
+    erb :budget
+  end
 end
 
 post '/orcamento/:token/recusar' do
@@ -162,17 +165,23 @@ post '/orcamento/:token/recusar' do
     halt 404, 'Este orçamento não está disponível'
   end
 
-  @budget.reject!(params[:reject_text])
-
-  redirect(url("/orcamento/#{@budget.token}"))
+  if @budget.reject!(params[:reject_text])
+    redirect(url("/orcamento/#{@budget.token}"))
+  else
+    @error_message = 'Ocorreu um erro. Não foi possível recusar o Orçamento.'
+    erb :budget
+  end
 end
 
 post '/orcamento/:token/avaliar' do
   @budget = Budget.find(params[:token])
 
-  @budget.review!(params[:rating], params[:comment])
-
-  redirect(url("/orcamento/#{@budget.token}"))
+  if @budget.review!(params[:rating], params[:comment])
+    redirect(url("/orcamento/#{@budget.token}"))
+  else
+    @error_message = 'Ocorreu um erro. Não foi possível salvar a Avaliação.'
+    erb :budget
+  end
 end
 
 #=== Admin
@@ -208,7 +217,7 @@ patch '/admin/:token' do
 
   @budget = Budget.find(params[:token])
 
-  if @budget.update(params) && false
+  if @budget.update(params)
     redirect(url("/admin/#{@budget.token}"))
   else
     @error_message = 'Ocorreu um erro. Não foi possível salvar o Orçamento.'
@@ -220,9 +229,12 @@ post '/admin/:token/pago' do
   protected!
 
   @budget = Budget.find(params[:token])
-  @budget.pay!
-
-  redirect(url("/admin/#{@budget.token}"))
+  if @budget.pay!
+    redirect(url("/admin/#{@budget.token}"))
+  else
+    @error_message = 'Ocorreu um erro. Não foi possível marcar o Orçamento como pago.'
+    erb :'admin/details'
+  end
 end
 
 get '/admin/contato/:token' do
