@@ -82,12 +82,20 @@
   <script src="/js/custom.js"></script>
 
   <script type="text/javascript">
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/plugins/bootstrap/css/bootstrap.min.css';
-    link.type = 'text/css';
+    var urls = [
+      '/plugins/font-awesome/css/font-awesome.min.css',
+      '/plugins/bootstrap/css/bootstrap.min.css'
+    ];
+    var l = urls.length;
     var firstLink = document.getElementsByTagName('link')[0];
-    firstLink.parentNode.insertBefore(link, firstLink);
+
+    for (var i = 0; i < l; i++) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = urls[i];
+      link.type = 'text/css';
+      firstLink.parentNode.insertBefore(link, firstLink);
+    }
   </script>
 
   <%= yield_content :javascript %>
