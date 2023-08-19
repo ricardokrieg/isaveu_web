@@ -11,12 +11,12 @@
   </div>
 </section>
 
-<div class="grid-wrapper section">
+<div class="grid-wrapper section" style="padding-top: 20px">
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-12 element-content">
         <div id="tables" class="element_single">
-          <div class="display-single_element">
+          <div class="display-single_element" style="margin-bottom: 0">
             <h3 style="margin: 30px 0">Solicitações de Orçamento</h3>
             <table class="table table-bordered table-striped">
               <thead>
@@ -63,12 +63,12 @@
   </div>
 </div>
 
-<div class="grid-wrapper section">
+<div class="grid-wrapper section" style="padding-top: 0">
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-12 element-content">
         <div id="tables" class="element_single">
-          <div class="display-single_element">
+          <div class="display-single_element" style="margin-bottom: 0">
             <h3 style="margin: 30px 0">Contatos</h3>
             <table class="table table-bordered table-striped">
               <thead>
@@ -103,3 +103,54 @@
   </div>
 </div>
 
+<div class="grid-wrapper section" style="padding-top: 0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-12 element-content">
+        <div id="tables" class="element_single">
+          <div class="display-single_element">
+            <h3 style="margin: 30px 0">Solicitações de Orçamento Encerradas</h3>
+            <table class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Token</th>
+                <th>Status</th>
+                <th>Criado Em</th>
+                <th>Atualizado Em</th>
+                <th>Tipo de Serviço</th>
+                <th>Profissional</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Whatsapp</th>
+                <th>Email</th>
+                <th>Pago Em</th>
+                <th>Avaliação</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @closed_budgets.each_with_index do |budget, i| %>
+                <tr>
+                  <th scope="row"><%= i + 1 %></th>
+                  <td><a href="<%= url("/admin/#{budget.token}") %>"><%= budget.token %></a></td>
+                  <td><%= budget.status %></td>
+                  <td><%= budget.created_at %></td>
+                  <td><%= budget.updated_at %></td>
+                  <td><%= budget.service %></td>
+                  <td><%= budget.worker_name %></td>
+                  <td><%= budget.name %></td>
+                  <td><%= budget.phone %></td>
+                  <td><%= budget.whatsapp %></td>
+                  <td><%= budget.email %></td>
+                  <td><%= budget.paid_at %></td>
+                  <td><%= budget.review_rating %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

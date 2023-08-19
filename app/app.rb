@@ -205,8 +205,9 @@ end
 get '/admin' do
   protected!
 
-  @budgets = Budget.all
+  @budgets = Budget.all.select {|b| !b.status_done? && !b.status_canceled?}
   @contacts = Contact.all
+  @closed_budgets = Budget.all.select {|b| b.status_done? || b.status_canceled?}
 
   erb :admin
 end
