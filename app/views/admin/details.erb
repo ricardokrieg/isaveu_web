@@ -18,6 +18,9 @@
         <div id="tables" class="element_single">
           <div class="display-single_element">
             <h3 style="margin: 30px 0">Detalhes <%= @budget.token %></h3>
+            <strong>Link para o cliente:</strong><br>
+            <h4><a href="<%= url("/orcamento/#{@budget.token}") %>"><%= url("/orcamento/#{@budget.token}") %></a></h4>
+            <br>
 
             <div class="actions">
               <a class="btn btn-primary float-left" style="margin-right: 10px;" href="<%= url("/admin/#{@budget.token}/editar") %>">Editar</a>
