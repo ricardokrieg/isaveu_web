@@ -103,6 +103,7 @@ Services::ListServices.instance.each do |service|
   get service['url'] do
     @body_class = 'page-services'
     @title = service['name']
+    @image = service['image']
 
     erb :'servicos/layout', layout: :layout do
       erb service['template'].to_sym
