@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-sm-12 col-md-4 offset-md-4">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-6 text-center">
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#reject-modal">
           Recusar
         </button>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 text-center">
         <form action="<%= url("/orcamento/#{@budget.token}/aceitar") %>" method="POST">
           <button type="submit" class="btn btn-success">Aceitar</button>
         </form>
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="modal-footer" style="justify-content: space-around">
-          <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-primary pull-left text-left" data-dismiss="modal">Voltar</button>
           <button type="submit" class="btn btn-danger">Recusar</button>
         </div>
       </form>

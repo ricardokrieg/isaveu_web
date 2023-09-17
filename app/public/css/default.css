@@ -199,3 +199,14 @@ ul.nav-tabs .nav-item .nav-link.active {
     padding: 0.4em 1em;
     border: 1px solid #bbb;
     border-radius: 5px; }
+
+/* Custom Trix */
+.trix-content-budget {
+    border: 2px solid #666;
+    padding: 20px 20px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+.trix-content-budget h1 {
+    text-align: center;
+}
