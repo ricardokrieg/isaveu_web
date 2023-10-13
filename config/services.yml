@@ -29,3 +29,9 @@ services:
     image: /img/servicos/bombeiro-hidraulico.jpg
     url: /servicos/bombeiro-hidraulico
     template: servicos/bombeiro_hidraulico
+  -
+    name: Outros Serviços
+    description:
+    image: /img/servicos/outros.png
+    url: /servicos/outros-servicos
+    template: servicos/outros_servicos
