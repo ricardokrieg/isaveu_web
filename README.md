@@ -32,3 +32,9 @@ Disable Maintenance mode
 ```shell
 $ bundle exec cap production maintenance:stop
 ```
+
+## Deploy
+
+```shell
+$ bundle exec cap production deploy
+```
